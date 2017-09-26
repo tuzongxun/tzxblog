@@ -3,8 +3,82 @@
 <head lang="en">
     <meta charset="UTF-8" />
     <title></title>
-</head>
+</head>  
+<style>
+         body{
+              margin:0px; 
+              padding:0px;
+         }
+         #header, #footer{ 
+             height: 50px;
+             /*background: #F8F8FF;*/
+         }
+         #footer{
+             background: #DCDCDC
+         }
+         #content .main{
+             height: 700px;
+             /*background: #F8F8FF;*/
+             overflow: auto;
+         }
+         #content .main .title{
+             height: 100px;
+             /*background: #F8F8FF;*/
+             /*overflow: auto;*/
+         }
+          #content .main .content1{
+             height: auto;
+             /*background: #F8F8FF;*/
+             /*overflow: auto;*/
+         }
+         
+         #content .aside{
+             height: 700px;
+             width: 250px;
+             background: #F8F8FF;
+             float: left;
+         }
+         #content .aside .header{
+             height: 150px;
+             width: 150px;
+             /*background: red;*/
+             margin-left: 50px;
+             margin-top: 10px;
+             /*overflow: center;*/
+         }
+</style>
 <body>
-<h1 th:text="${host}">Hello World</h1>
+    <!--<div id="header"></div>-->
+    <div id="content">
+        <!--侧边栏-->
+        <div class="aside">
+           <div class="header">
+             <img src="./z1.jpg" style="border-radius:75px;width:150px;height:150px" alt="some_text"></img>
+           </div>
+           <p><center><H1>myBolg</H1></center></p>
+           <p><center><H3>welcome to my blog</H3></center></p>
+           <hr/>
+        </div>
+        <!--内容主区域-->
+        <div class="main">
+            <!--标题-->
+            <div class="title">
+               <H2>this is my first blog</H2>
+            </div>
+            <hr/>
+            <!--主要内容-->
+            <div class="content1">
+            main main main main main main
+            <p th:text="${host}">Hello World</p>
+            
+            </div>
+            
+        </div>
+    </div>
+    <!--页脚-->
+    <div id="footer">
+                  <center> 版权所有  @tzx 20170926</center>
+    </div>
+
 </body>
 </html>
