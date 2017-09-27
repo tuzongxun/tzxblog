@@ -17,23 +17,35 @@
              background: #DCDCDC
          }
          #content .main{
-             height: 700px;
+             height: 600px;
              /*background: #F8F8FF;*/
              overflow: auto;
          }
          #content .main .title{
-             height: 100px;
+             height: auto;
+             margin:0px; 
+             padding:0px;
              /*background: #F8F8FF;*/
              /*overflow: auto;*/
          }
-          #content .main .content1{
+         #content .main .content1{
              height: auto;
+             margin-left:20px;
+             margin-right:20px;
+             width:95%;
+             /*background: #F8F8FF;*/
+             /*overflow: auto;*/
+         }
+         
+         #content .main .comments{
+             height: auto;
+             width:100%;
              /*background: #F8F8FF;*/
              /*overflow: auto;*/
          }
          
          #content .aside{
-             height: 700px;
+             height: 600px;
              width: 250px;
              background: #F8F8FF;
              float: left;
@@ -46,6 +58,10 @@
              margin-top: 10px;
              /*overflow: center;*/
          }
+         a{
+             text-decoration:none;
+         }
+         
 </style>
 <body>
     <!--<div id="header"></div>-->
@@ -58,26 +74,46 @@
            <p><center><H1>myBolg</H1></center></p>
            <p><center><H3>welcome to my blog</H3></center></p>
            <hr/>
+           <ul style="list-style:none;">
+              <li style="line-height:2.5"><a href="#">首页</a></li>
+              <li style="line-height:2.5"><a href="#">分类</a></li>
+              <li style="line-height:2.5"><a href="#">书单</a></li>
+              <li style="line-height:2.5"><a href="#">关于我</a></li>
+           </ul>
         </div>
         <!--内容主区域-->
         <div class="main">
             <!--标题-->
             <div class="title">
-               <H2>this is my first blog</H2>
+               <H3 th:text="${title}">this is my first blog</H3>
+               <table >
+                  <tr th:text="${type}" ></tr>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <tr th:text="${date}"></tr>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <tr th:text="${readCount}"></tr>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <tr th:text="${commentsCount}"></tr>
+               </table>
             </div>
             <hr/>
             <!--主要内容-->
             <div class="content1">
-            main main main main main main
-            <p th:text="${host}">Hello World</p>
-            
+            <pre th:text="${context}" style="word-wrap:break-word;word-break:normal;width:100px"></pre>
             </div>
-            
+            <br/>
+            <div class="comments">
+                 <p>发表评论：</p>
+                 <textarea style="width:85%"></textarea><br/>
+                 <ul style="list-style:none;">
+                    <li style="line-height:2.5"><a href="#">这个一个评论测试</a></li>
+                    <li style="line-height:2.5"><a href="#">这个一个评论测试发大水发沙发上发生的发顺丰</a></li>
+                    <li style="line-height:2.5"><a href="#">大沙发啥地方撒旦法师打发斯蒂芬</a></li>
+                    <li style="line-height:2.5"><a href="#">阿斯顿飞洒发大水发的说法</a></li>
+                 </ul>
+            </div>
         </div>
     </div>
     <!--页脚-->
     <div id="footer">
-                  <center> 版权所有  @tzx 20170926</center>
+            <center> 版权所有  @tzx 20170926</center>
     </div>
 
 </body>
