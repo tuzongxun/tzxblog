@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tzx.blog.commons.TzxData;
+
 /**
  * 首页
  * 
@@ -38,6 +40,11 @@ public class IndexController {
 		map.addAttribute("date", "发布时间：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		map.addAttribute("readCount", "阅读量：" + 999);
 		map.addAttribute("commentsCount", "评论数：" + 99);
+		map.addAttribute("readCounts", TzxData.readCounts);
+		map.addAttribute("blogCounts", 2);
+		map.addAttribute("myCounts", 1);
+		map.addAttribute("otherCounts", 1);
+		map.addAttribute("commentCounts", 99);
 
 		// return "welcome to tzxblog";
 		return "index";

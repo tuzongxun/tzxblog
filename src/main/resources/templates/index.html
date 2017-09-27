@@ -80,6 +80,12 @@
               <li style="line-height:2.5"><a href="#">书单</a></li>
               <li style="line-height:2.5"><a href="#">关于我</a></li>
            </ul>
+           <hr/>
+              &nbsp;&nbsp;&nbsp;&nbsp;访问量：<font th:text="${readCounts}"></font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;博客数：<font th:text="${blogCounts}"></font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;原创数：<font th:text="${myCounts}"></font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;转载数：<font th:text="${otherCounts}"></font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;评论数：<font th:text="${commentCounts}"></font><br/>
         </div>
         <!--内容主区域-->
         <div class="main">
@@ -87,10 +93,10 @@
             <div class="title">
                <H3 th:text="${title}">this is my first blog</H3>
                <table >
-                  <tr th:text="${type}" ></tr>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#"><tr th:text="${type}" ></tr></a>&nbsp;&nbsp;&nbsp;&nbsp;
                   <tr th:text="${date}"></tr>&nbsp;&nbsp;&nbsp;&nbsp;
                   <tr th:text="${readCount}"></tr>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <tr th:text="${commentsCount}"></tr>
+                  <a href="#"><tr th:text="${commentsCount}"></tr></a>
                </table>
             </div>
             <hr/>
