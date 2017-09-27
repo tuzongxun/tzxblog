@@ -7,4 +7,4 @@
 >使用thymeleaf模板实现页面
 
 页面初步效果截图如下：
-![页面布局截图](images/buju.png)
+![页面布局截图](images/buju1.png)
