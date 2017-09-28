@@ -1,5 +1,7 @@
 package com.tzx.blog.services;
 
+import com.tzx.blog.models.Bloginfo;
+
 /**
  * blog信息处理业务层接口
  * 
@@ -10,5 +12,5 @@ public interface BlogService {
 	/**
 	 * 查询blog明细
 	 */
-	public void findBlogInfo(int blogId);
+	public Bloginfo findBlogById(int blogId);
 }

@@ -13,5 +13,11 @@ import com.tzx.blog.models.Userinfo;
  */
 @Repository
 public interface UserDao extends JpaRepository<Userinfo, Integer> {
+	/**
+	 * 根据userid查询user信息
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	public Userinfo findByUserId(int userId);
 }
