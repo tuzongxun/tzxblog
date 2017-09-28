@@ -6,11 +6,13 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tzx.blog.commons.TzxData;
+import com.tzx.blog.services.BlogService;
 
 /**
  * 首页
@@ -20,8 +22,12 @@ import com.tzx.blog.commons.TzxData;
  */
 @Controller
 public class IndexController {
+	@Autowired
+	BlogService blogService;
+
 	@RequestMapping("/tzxblog")
 	public String index(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+		blogService.findBlogInfo(1);
 		map.addAttribute("context", "  少发了卡萨缴费基数龙卷风拉斯加老房间爱睡懒觉法拉受精卵放假啊刷积分" + "\r\n"
 				+ "  松岛枫红啊是佛山大佛横扫风hi啊是覅哦啊手覅哈达神佛哈度搜凤凰IOS大会发送阿迪神佛啊是覅哦哈搜ifhi阿搜房hi噢啊但是覅哦哈死哦发哈第三方" + "\r\n"
 				+ "  说的佛哈桑佛i哈桑粉红色哈佛横扫的分红阿斯顿回复撒地方考虑将撒旦法卢卡斯将风口浪尖撒旦浪费将拉动神经分裂框架ADSL放假三等奖费卢卡斯金风科技阿迪刷积分卡受精卵风景奥德赛 加快速度龙卷风卢卡斯交罚款老家啊时空裂缝金卡戴珊将法拉第神经分裂刷积分卡拉斯积分卡拉斯加风口浪尖阿杜说考虑房价卡萨拉飞机撒地方将卡拉水井坊拉德斯基风口浪尖奥德赛"
