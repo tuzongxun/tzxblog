@@ -8,5 +8,12 @@
 >mysql5.6<br/>
 >持久层使用jpa<br/>
 
+涉及的后端具体关键技术点：
+>jpa操作数据库
+>ServletRequestListener监听器实现访问量的增长
+>spring boot做基本架构
+>spring boot内嵌tomcat服务器
+>thymeleaf模板渲染html填充数据
+
 页面初步效果截图如下：
 ![页面布局截图](images/buju1.png)
