@@ -1,6 +1,6 @@
 package com.tzx.blog.services;
 
-import com.tzx.blog.models.Bloginfo;
+import org.springframework.ui.ModelMap;
 
 /**
  * blog信息处理业务层接口
@@ -12,5 +12,5 @@ public interface BlogService {
 	/**
 	 * 查询blog明细
 	 */
-	public Bloginfo findBlogById(int blogId);
+	public ModelMap findBlogById(int blogId, ModelMap map);
 }
