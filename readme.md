@@ -8,7 +8,7 @@
 >mysql5.6<br/>
 >持久层使用jpa<br/>
 
-###　涉及的后端具体关键技术点
+### 涉及的后端具体关键技术点
 >jpa操作数据库<br/>
 >ServletRequestListener监听器实现访问量的增长<br/>
 >spring boot做基本架构<br/>
