@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * The persistent class for the commentinfo database table.
+ * blog评论实体
  * 
  */
 @Entity
@@ -23,17 +23,25 @@ public class Commentinfo implements Serializable {
 	@Id
 	@Column(name = "comment_id")
 	private int commentId;
-
+	/**
+	 * blog的id
+	 */
 	@Column(name = "blog_id")
 	private BigInteger blogId;
-
+	/**
+	 * 评论内容
+	 */
 	@Column(name = "comment_content")
 	private String commentContent;
-
+	/**
+	 * 评论时间
+	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "comment_date")
 	private Date commentDate;
-
+	/**
+	 * 评论用户的id
+	 */
 	@Column(name = "user_id")
 	private BigInteger userId;
 

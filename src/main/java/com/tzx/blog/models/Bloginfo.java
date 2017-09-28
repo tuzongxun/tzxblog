@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * The persistent class for the bloginfo database table.
+ * blog实体
  * 
  */
 @Entity
@@ -24,27 +24,42 @@ public class Bloginfo implements Serializable {
 	@Id
 	@Column(name = "blog_id")
 	private int blogId;
-
+	/**
+	 * blog评论数
+	 */
 	@Column(name = "blog_commentcount")
 	private BigInteger blogCommentcount;
 
+	/**
+	 * blog内容
+	 */
 	@Lob
 	@Column(name = "blog_content")
 	private String blogContent;
-
+	/**
+	 * blog最后修改时间
+	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "blog_date")
 	private Date blogDate;
-
+	/**
+	 * blog阅读数
+	 */
 	@Column(name = "blog_readcount")
 	private BigInteger blogReadcount;
-
+	/**
+	 * blog标题
+	 */
 	@Column(name = "blog_title")
 	private String blogTitle;
-
+	/**
+	 * blog类型
+	 */
 	@Column(name = "blog_type")
 	private int blogType;
-
+	/**
+	 * 用户id
+	 */
 	@Column(name = "user_id")
 	private BigInteger userId;
 

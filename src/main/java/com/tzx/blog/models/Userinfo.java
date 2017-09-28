@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 /**
- * The persistent class for the userinfo database table.
+ * 用户实体
  * 
  */
 @Entity
@@ -19,19 +19,29 @@ public class Userinfo implements Serializable {
 	@Id
 	@Column(name = "user_id")
 	private int userId;
-
+	/**
+	 * 账号
+	 */
 	@Column(name = "user_account")
 	private String userAccount;
-
+	/**
+	 * 邮箱
+	 */
 	@Column(name = "user_email")
 	private String userEmail;
-
+	/**
+	 * 用户名
+	 */
 	@Column(name = "user_name")
 	private String userName;
-
+	/**
+	 * 密码
+	 */
 	@Column(name = "user_password")
 	private String userPassword;
-
+	/**
+	 * 手机号
+	 */
 	@Column(name = "user_phone")
 	private String userPhone;
 

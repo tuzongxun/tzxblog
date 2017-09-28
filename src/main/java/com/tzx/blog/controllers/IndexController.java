@@ -39,7 +39,6 @@ public class IndexController {
 		map.addAttribute("otherCounts", 1);
 		map.addAttribute("commentCounts", 99);
 
-		// return "welcome to tzxblog";
 		return "index";
 	}
 }
