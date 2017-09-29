@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8" />
     <title></title>
+    <script type="text/javascript" src="showdown.min.js"></script>
 </head>  
 <style>
          body{
@@ -30,9 +31,8 @@
          }
          #content .main .content1{
              height: auto;
-             margin-left:20px;
-             margin-right:20px;
-             width:95%;
+             margin-left:30px;
+             width:97%;
              /*background: #F8F8FF;*/
              /*overflow: auto;*/
          }
@@ -63,6 +63,7 @@
          }
          
 </style>
+
 <body>
     <!--<div id="header"></div>-->
     <div id="content">
@@ -73,6 +74,7 @@
            </div>
            <p><center><H1>myBolg</H1></center></p>
            <p><center><H3>welcome to my blog</H3></center></p>
+           <p th:text="${curAdd}"></p>
            <hr/>
            <ul style="list-style:none;">
               <li style="line-height:2.5"><a href="#">首页</a></li>
@@ -101,9 +103,18 @@
             </div>
             <hr/>
             <!--主要内容-->
-            <div class="content1">
-            <pre th:text="${content}" style="word-wrap:break-word;word-break:normal;width:100px"></pre>
+            <div class="content1" id="curcontent" style="word-wrap:break-word;word-break:normal;width:85%">
             </div>
+            <div id="testEditorMdview">
+                <textarea th:utext="${content}" id="appendTest" style="display:none;"></textarea>
+            </div>
+            <!--数据转换为markdown格式-->
+            <script type="text/javascript" >
+                 var text = document.getElementById("appendTest").value;
+                 var converter = new showdown.Converter();
+                 var html = converter.makeHtml(text);
+                 document.getElementById("curcontent").innerHTML = html;
+            </script>
             <br/>
             <div class="comments">
                  <p>发表评论：</p>

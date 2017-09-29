@@ -39,5 +39,4 @@ public class BlogServiceImpl implements BlogService {
 		map.addAttribute("commentCounts", 99);
 		return map;
 	}
-
 }
