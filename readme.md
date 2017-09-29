@@ -14,6 +14,7 @@
 >spring boot做基本架构<br/>
 >spring boot内嵌tomcat服务器<br/>
 >thymeleaf模板渲染html填充数据<br/>
+>引入showdown.min.js文件实现对markdown语法的支持
 
 ### 基础效果截图如下：
 ![页面布局截图](images/buju1.png)
