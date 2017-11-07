@@ -28,7 +28,7 @@ public class Bloginfo implements Serializable {
 	 * blog评论数
 	 */
 	@Column(name = "blog_commentcount")
-	private BigInteger blogCommentcount;
+	private BigInteger blogCommentCount;
 
 	/**
 	 * blog内容
@@ -46,7 +46,7 @@ public class Bloginfo implements Serializable {
 	 * blog阅读数
 	 */
 	@Column(name = "blog_readcount")
-	private BigInteger blogReadcount;
+	private BigInteger blogReadCount;
 	/**
 	 * blog标题
 	 */
@@ -56,7 +56,7 @@ public class Bloginfo implements Serializable {
 	 * blog类型
 	 */
 	@Column(name = "blog_type")
-	private int blogType;
+	private String blogType;
 	/**
 	 * 用户id
 	 */
@@ -74,12 +74,12 @@ public class Bloginfo implements Serializable {
 		this.blogId = blogId;
 	}
 
-	public BigInteger getBlogCommentcount() {
-		return this.blogCommentcount;
+	public BigInteger getBlogCommentCount() {
+		return this.blogCommentCount;
 	}
 
-	public void setBlogCommentcount(BigInteger blogCommentcount) {
-		this.blogCommentcount = blogCommentcount;
+	public void setBlogCommentcount(BigInteger blogCommentCount) {
+		this.blogCommentCount = blogCommentCount;
 	}
 
 	public String getBlogContent() {
@@ -98,12 +98,12 @@ public class Bloginfo implements Serializable {
 		this.blogDate = blogDate;
 	}
 
-	public BigInteger getBlogReadcount() {
-		return this.blogReadcount;
+	public BigInteger getBlogReadCount() {
+		return this.blogReadCount;
 	}
 
-	public void setBlogReadcount(BigInteger blogReadcount) {
-		this.blogReadcount = blogReadcount;
+	public void setBlogReadcount(BigInteger blogReadCount) {
+		this.blogReadCount = blogReadCount;
 	}
 
 	public String getBlogTitle() {
@@ -114,11 +114,11 @@ public class Bloginfo implements Serializable {
 		this.blogTitle = blogTitle;
 	}
 
-	public int getBlogType() {
+	public String getBlogType() {
 		return this.blogType;
 	}
 
-	public void setBlogType(int blogType) {
+	public void setBlogType(String blogType) {
 		this.blogType = blogType;
 	}
 
@@ -132,8 +132,8 @@ public class Bloginfo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Bloginfo [blogId=" + blogId + ", blogCommentcount=" + blogCommentcount + ", blogContent=" + blogContent
-				+ ", blogDate=" + blogDate + ", blogReadcount=" + blogReadcount + ", blogTitle=" + blogTitle
+		return "Bloginfo [blogId=" + blogId + ", blogCommentcount=" + blogCommentCount + ", blogContent=" + blogContent
+				+ ", blogDate=" + blogDate + ", blogReadcount=" + blogReadCount + ", blogTitle=" + blogTitle
 				+ ", blogType=" + blogType + ", userId=" + userId + "]";
 	}
 

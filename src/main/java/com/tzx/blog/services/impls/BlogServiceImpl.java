@@ -26,17 +26,13 @@ public class BlogServiceImpl implements BlogService {
 		Bloginfo bloginfo = blogDao.findByBlogId(blogId);
 		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo.getUserId().toString()));
 		System.out.println(bloginfo);
-		map.addAttribute("content", bloginfo.getBlogContent());
-		map.addAttribute("title", bloginfo.getBlogTitle());
-		map.addAttribute("type", bloginfo.getBlogType() == 0 ? "原创" : "转载");
-		map.addAttribute("date", "发布时间：" + bloginfo.getBlogDate());
-		map.addAttribute("readCount", "阅读量：" + bloginfo.getBlogReadcount());
-		map.addAttribute("commentsCount", "评论数：" + bloginfo.getBlogCommentcount());
 		map.addAttribute("readCounts", TzxData.readCounts);
 		map.addAttribute("blogCounts", blogCounts);
 		map.addAttribute("myCounts", 1);
 		map.addAttribute("otherCounts", 1);
 		map.addAttribute("commentCounts", 99);
+		map.addAttribute("blogInfo", bloginfo);
+		map.addAttribute("userInfo", userinfo);
 		return map;
 	}
 }

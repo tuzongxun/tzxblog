@@ -1,5 +1,7 @@
 package com.tzx.blog.services;
 
+import java.util.List;
+
 import com.tzx.blog.models.Commentinfo;
 
 /**
@@ -9,5 +11,5 @@ import com.tzx.blog.models.Commentinfo;
  *
  */
 public interface CommentService {
-	public Commentinfo findCommentById(int commentId);
+	public List<Commentinfo> findCommentByBlogId(int blogId);
 }
