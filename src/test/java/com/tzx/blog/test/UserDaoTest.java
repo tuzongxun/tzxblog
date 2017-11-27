@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.tzx.blog.daos.UserDao;
-import com.tzx.blog.models.Userinfo;
+import com.tzx.blog.dao.UserDao;
+import com.tzx.blog.model.Userinfo;
 
 /**
  * 用户信息持久化接口测试
