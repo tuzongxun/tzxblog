@@ -24,7 +24,8 @@ public class BlogServiceImpl implements BlogService {
 	public ModelMap findBlogById(int blogId, ModelMap map) {
 		long blogCounts = blogDao.count();
 		Bloginfo bloginfo = blogDao.findByBlogId(blogId);
-		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo.getUserId().toString()));
+		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo
+				.getUserId().toString()));
 		System.out.println(bloginfo);
 		map.addAttribute("readCounts", TzxData.readCounts);
 		map.addAttribute("blogCounts", blogCounts);
@@ -35,4 +36,11 @@ public class BlogServiceImpl implements BlogService {
 		map.addAttribute("userInfo", userinfo);
 		return map;
 	}
+
+	@Override
+	public ModelMap findCategories(ModelMap map) {
+		map.addAttribute("categories", "aaa");
+		return map;
+	}
+
 }

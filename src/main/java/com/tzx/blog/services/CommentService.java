@@ -11,5 +11,5 @@ import com.tzx.blog.models.Commentinfo;
  *
  */
 public interface CommentService {
-	public List<Commentinfo> findCommentByBlogId(int blogId);
+	public List<Commentinfo> findCommentByBlogId(Integer blogId);
 }

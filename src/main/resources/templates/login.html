@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>tzx-blog</title>
+    <!-- 引入自定义css -->
+    <link rel="stylesheet" href="/css/index.css"/>
+    <!-- 引入bootstrap4,jquery需要在bootstrap4之前引入,popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css"/>
+    <script type="text/javascript" src="/bootstrap/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/popper.min.js"></script>
+    <!-- 用以支持markdown语法 -->
+    <script type="text/javascript" src="/showdown.min.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function(){
+         $("#login").click(function(){
+           var formData = $("#logform").serializeArray(); //先进行序列化数组操作
+           var userinfo = {};  //创建一个对象
+           $.each(formData, function(n,v) {    
+              userinfo[formData[n].name]=formData[n].value;  //循环数组，把数组的每一项都添加到对象中
+           });
+            $.ajax({
+              type: "POST",
+              url: "./login",
+              contentType: "application/json; charset=utf-8",
+              data: JSON.stringify(userinfo),
+              dataType: "json",
+              success: function (message) {
+              //请求成功，跳转到首页
+                if (message > 0) {
+                    window.location.href="/tzxblog";
+                }
+              },
+              error: function (message) {
+                //请求失败，弹框提示，重新登录
+                $("#request-process-patent").html("提交数据失败！");
+              }
+           });
+        });
+       });
+       
+    </script>
+</head>  
+<body style="margin:0">
+    <!-- 顶部导航栏 -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">分类</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">归档</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">关于</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">注册</a>
+            </li>
+        </ul>
+    </nav>
+	<div class="jumbotron mx-auto">   
+	  <div class="row mx-auto rounded bg-secondary w-50" style="font-size:22px">
+        <div class="col-md-offset-3 col-md-6 mx-auto" >
+            <form class="form-horizontal mx-auto" action="#">
+                <span class="heading" style="font-size:30px;text-align:center">用户登录</span><br/><br/>
+                <div class="form-group">
+                                                                   用户名：<input type="email" class="form-control" id="username" name="userAccount" placeholder="用户名或电子邮件"/>
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                                                                   密&nbsp;&nbsp;&nbsp;码：<input type="password" class="form-control" id="password" name="userPassword" placeholder="密　码"/>
+                    <i class="fa fa-lock"></i>
+                    <a href="#" class="fa fa-question-circle"></a>
+                </div>
+                <div class="form-group">
+                    <div class="main-checkbox">
+                        <input type="checkbox" value="None" id="checkbox1" name="check"/>
+                        <label for="checkbox1"></label>
+                        <span class="text">Remember me</span><br/><br/>
+                    </div>
+                    
+                    <input type="button" id="login"  value="登录"/>
+	                <input class="float-right" id="regist" type="button" value="注册"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>
