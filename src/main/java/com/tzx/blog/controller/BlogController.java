@@ -32,7 +32,7 @@ public class BlogController {
 	 */
 	@RequestMapping("")
 	public String index(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
-		blogService.findBlogById(1, map);
+		blogService.findBlogById(1, map, request);
 		return "index";
 	}
 

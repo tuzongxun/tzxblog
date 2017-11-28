@@ -3,6 +3,8 @@ package com.tzx.blog.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +31,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Map<String, Object> addUser(Userinfo userinfo) {
+	public Map<String, Object> addUser(Userinfo userinfo, HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (userinfo.getUserAccount() == null || "".equals(userinfo.getUserAccount())) {
 			map.put("resultCode", 1);
@@ -47,6 +49,7 @@ public class UserServiceImpl implements UserService {
 			try {
 				user = userDao.save(userinfo);
 				map.put("resultCode", 0);
+				request.getSession().setAttribute("user", user);
 			} catch (Exception e) {
 				// 用户名存在
 				map.put("resultCode", 4);

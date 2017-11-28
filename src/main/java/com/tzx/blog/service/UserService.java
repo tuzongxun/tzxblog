@@ -2,6 +2,8 @@ package com.tzx.blog.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.tzx.blog.model.Userinfo;
 
 /**
@@ -27,5 +29,5 @@ public interface UserService {
 	 * @param userinfo
 	 * @return
 	 */
-	public Map<String, Object> addUser(Userinfo userinfo);
+	public Map<String, Object> addUser(Userinfo userinfo, HttpServletRequest request);
 }

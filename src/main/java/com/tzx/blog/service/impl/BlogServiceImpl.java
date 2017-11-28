@@ -1,5 +1,8 @@
 package com.tzx.blog.service.impl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -21,7 +24,7 @@ public class BlogServiceImpl implements BlogService {
 	UserDao userDao;
 
 	@Override
-	public ModelMap findBlogById(int blogId, ModelMap map) {
+	public ModelMap findBlogById(int blogId, ModelMap map, HttpServletRequest request) {
 		long blogCounts = blogDao.count();
 		Bloginfo bloginfo = blogDao.findByBlogId(blogId);
 		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo.getUserId().toString()));
@@ -32,6 +35,12 @@ public class BlogServiceImpl implements BlogService {
 		map.addAttribute("commentCounts", 99);
 		map.addAttribute("blogInfo", bloginfo);
 		map.addAttribute("userInfo", userinfo);
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			map.addAttribute("islogin", true);
+		} else {
+			map.addAttribute("islogin", false);
+		}
 		return map;
 	}
 

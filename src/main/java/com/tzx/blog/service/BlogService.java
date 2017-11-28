@@ -1,5 +1,7 @@
 package com.tzx.blog.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.ui.ModelMap;
 
 /**
@@ -12,7 +14,7 @@ public interface BlogService {
 	/**
 	 * 查询blog明细
 	 */
-	public ModelMap findBlogById(int blogId, ModelMap map);
+	public ModelMap findBlogById(int blogId, ModelMap map, HttpServletRequest request);
 
 	public ModelMap findCategories(ModelMap map);
 }

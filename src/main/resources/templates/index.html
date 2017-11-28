@@ -18,28 +18,34 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">首页</a>
+                <a class="nav-link" href="/tzxblog">首页</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">分类</a>
+                <a class="nav-link" href="/tzxblog/categories">分类</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">归档</a>
+                <a class="nav-link" href="/tzxblog/history">归档</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">关于</a>
+                <a class="nav-link" href="/tzxblog/about">关于</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">资料</a>
+                <a class="nav-link" href="/tzxblog/file">资料</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">论坛</a>
+                <a class="nav-link" href="/tzxblog/bbs">论坛</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" th:if="${islogin}">
                 <a class="nav-link" href="/tzxblog/loginpage">登录</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">注册</a>
+            <li class="nav-item" th:if="${islogin}">
+                <a class="nav-link" href="/tzxblog/registpage">注册</a>
+            </li>
+            <li class="nav-item" th:if="${!islogin}">
+                <a class="nav-link" href="/tzxblog/updateuser" th:text="'【 '+${userInfo.userName}+' 】'">用户</a>
+            </li>
+            <li class="nav-item" th:if="${!islogin}">
+                <a class="nav-link" href="/tzxblog/logout">【注销】</a>
             </li>
         </ul>
     </nav>

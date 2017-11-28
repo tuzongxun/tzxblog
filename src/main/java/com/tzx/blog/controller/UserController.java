@@ -1,6 +1,10 @@
 package com.tzx.blog.controller;
 
+import java.io.IOException;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,8 +52,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public int login(@RequestBody Userinfo user) {
-		System.out.println(user);
+	public int login(@RequestBody Userinfo user, HttpServletRequest request) {
 		if (user == null || user.getUserAccount() == null || "".equals(user.getUserAccount())) {
 			return 1;
 		}
@@ -59,6 +62,7 @@ public class UserController {
 		} else if (!(userinfo.getUserPassword().equals(user.getUserPassword()))) {
 			return 3;
 		}
+		request.getSession().setAttribute("user", userinfo);
 		return 0;
 	}
 
@@ -74,8 +78,18 @@ public class UserController {
 
 	@RequestMapping(value = "regist", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public Object regist(@RequestBody Userinfo user) {
-		Map<String, Object> map = userService.addUser(user);
+	public Object regist(@RequestBody Userinfo user, HttpServletRequest request) {
+		Map<String, Object> map = userService.addUser(user, request);
 		return map;
+	}
+
+	@RequestMapping(value = "logout")
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().removeAttribute("user");
+		try {
+			response.sendRedirect("/tzxblog");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
