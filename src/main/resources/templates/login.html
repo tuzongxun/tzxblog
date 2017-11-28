@@ -20,6 +20,7 @@
            $.each(formData, function(n,v) {    
               userinfo[formData[n].name]=formData[n].value;  //循环数组，把数组的每一项都添加到对象中
            });
+           console.log(userinfo);
             $.ajax({
               type: "POST",
               url: "./login",
@@ -27,9 +28,23 @@
               data: JSON.stringify(userinfo),
               dataType: "json",
               success: function (message) {
+              console.log(message);
               //请求成功，跳转到首页
-                if (message > 0) {
+                if (message == 0) {
+                    //登录成功
                     window.location.href="/tzxblog";
+                }else if(message == 1){
+                    //用户名为空
+                    $("#pu1").text("用户名不能为空");
+                    $("#pu1").css({color:"#993333"})
+                }else if(message == 2){
+                    //用户不存在
+                    $("#pu1").text("该用户不存在，请重新输入");
+                    $("#pu1").css({color:"#FF9966"})
+                }else if(message == 3){
+                    //密码错误
+                    $("#pu1").text("密码不正确，请重新输入");
+                    $("#pu1").css({color:"#993333"})
                 }
               },
               error: function (message) {
@@ -66,17 +81,19 @@
             </li>
         </ul>
     </nav>
-	<div class="jumbotron mx-auto">   
+	<div class="jumbotron mx-auto" style="background:url(/images/loginbg1.png) no-repeat;background-size:100%;">   
 	  <div class="row mx-auto rounded bg-secondary w-50" style="font-size:22px">
         <div class="col-md-offset-3 col-md-6 mx-auto" >
-            <form class="form-horizontal mx-auto" action="#">
-                <span class="heading" style="font-size:30px;text-align:center">用户登录</span><br/><br/>
+            <form id="logform" class="form-horizontal mx-auto" action="#">
+                <center><span class="heading" style="font-size:30px;">用户登录</span></center><br/>
                 <div class="form-group">
-                                                                   用户名：<input type="email" class="form-control" id="username" name="userAccount" placeholder="用户名或电子邮件"/>
+                    <p id="pu1" style="display:inline">请输入用户名</p>
+                    <input type="email" class="form-control" id="username" name="userAccount" placeholder="用户名或电子邮件"/>
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                                                                   密&nbsp;&nbsp;&nbsp;码：<input type="password" class="form-control" id="password" name="userPassword" placeholder="密　码"/>
+                    <p id="pp1" style="display:inline">请输入密码</p>
+                    <input type="password" class="form-control" id="password" name="userPassword" placeholder="密　码"/>
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>

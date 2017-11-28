@@ -24,9 +24,7 @@ public class BlogServiceImpl implements BlogService {
 	public ModelMap findBlogById(int blogId, ModelMap map) {
 		long blogCounts = blogDao.count();
 		Bloginfo bloginfo = blogDao.findByBlogId(blogId);
-		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo
-				.getUserId().toString()));
-		System.out.println(bloginfo);
+		Userinfo userinfo = userDao.findByUserId(Integer.parseInt(bloginfo.getUserId().toString()));
 		map.addAttribute("readCounts", TzxData.readCounts);
 		map.addAttribute("blogCounts", blogCounts);
 		map.addAttribute("myCounts", 1);

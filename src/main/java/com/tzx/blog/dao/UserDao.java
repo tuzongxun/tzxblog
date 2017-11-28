@@ -20,4 +20,12 @@ public interface UserDao extends JpaRepository<Userinfo, Integer> {
 	 * @return
 	 */
 	public Userinfo findByUserId(int userId);
+
+	/**
+	 * 根据account查询用户信息
+	 * 
+	 * @param account
+	 * @return
+	 */
+	public Userinfo findByUserAccount(String account);
 }
