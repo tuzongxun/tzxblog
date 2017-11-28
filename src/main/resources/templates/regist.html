@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>tzx-blog</title>
+    <!-- 引入自定义css -->
+    <link rel="stylesheet" href="/css/index.css"/>
+    <!-- 引入bootstrap4,jquery需要在bootstrap4之前引入,popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css"/>
+    <script type="text/javascript" src="/bootstrap/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/popper.min.js"></script>
+    <!-- 用以支持markdown语法 -->
+    <script type="text/javascript" src="/markdownjs/showdown.min.js"></script>
+    <script type="text/javascript" src="/tzxjs/regist.js"></script>
+</head>  
+<body style="margin:0">
+    <!-- 顶部导航栏 -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">分类</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">归档</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">关于</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">资料</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">论坛</a>
+            </li>
+        </ul>
+    </nav>
+	<!--  <div class="jumbotron mx-auto" style="background:url(/images/loginbg1.png) no-repeat;background-size:100%;"> -->  
+	<div class="mx-auto" style="background:url(/images/registbg.jpg) no-repeat;background-size:100%;">
+	  <br/>
+	  <div class="row mx-auto rounded w-50 h-50" style="font-size:22px;background:#99CC99">
+        <div class="col-md-offset-3 col-md-6 mx-auto" >
+            <form id="regform" class="form-horizontal mx-auto" action="#">
+                <center><span class="heading" style="font-size:30px;">用户注册</span></center><br/>
+                <div class="form-group">
+                    <p id="pu1" style="display:inline">请输入账号</p>
+                    <input type="email" class="form-control" id="username" name="userAccount" placeholder="用户名或电子邮件"/>
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <p id="pp1" style="display:inline">请输入密码</p>
+                    <input type="password" class="form-control" id="password" name="userPassword" placeholder="密　码"/>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group help">
+                    <p id="pp2" style="display:inline">请确认密码</p>
+                    <input type="password" class="form-control" id="password1" name="userPassword1" placeholder="确认密码"/>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group help">
+                    <p id="em1" style="display:inline">请输入绑定邮箱</p>
+                    <input type="email" class="form-control" id="email" name="userEmail" placeholder="绑定邮箱"/>
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group">
+                    <input class="float-right" id="regist" type="button" value="注册"/>
+                    <a href="./loginpage"><input type="button" value="登录"/></a>
+                </div>
+            </form>
+        </div>
+     </div>
+     <br/>
+    </div>
+    
+</body>
+</html>

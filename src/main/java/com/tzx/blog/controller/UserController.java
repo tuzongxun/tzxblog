@@ -1,11 +1,9 @@
 package com.tzx.blog.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,7 +33,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/loginpage")
-	public String loginpage(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+	public String loginpage() {
 		return "login";
 	}
 
@@ -50,8 +48,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public int login(@RequestBody Userinfo user, HttpServletRequest request, HttpServletResponse response,
-			ModelMap map) {
+	public int login(@RequestBody Userinfo user) {
 		System.out.println(user);
 		if (user == null || user.getUserAccount() == null || "".equals(user.getUserAccount())) {
 			return 1;
@@ -63,5 +60,22 @@ public class UserController {
 			return 3;
 		}
 		return 0;
+	}
+
+	/**
+	 * 注册页面
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "registpage")
+	public String registpage() {
+		return "regist";
+	}
+
+	@RequestMapping(value = "regist", method = RequestMethod.POST, consumes = "application/json")
+	@ResponseBody
+	public Object regist(@RequestBody Userinfo user) {
+		Map<String, Object> map = userService.addUser(user);
+		return map;
 	}
 }

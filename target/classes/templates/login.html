@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bootstrap/popper.min.js"></script>
     <!-- 用以支持markdown语法 -->
-    <script type="text/javascript" src="/showdown.min.js"></script>
+    <script type="text/javascript" src="/markdownjs/showdown.min.js"></script>
     <script type="text/javascript">
        $(document).ready(function(){
          $("#login").click(function(){
@@ -35,7 +35,7 @@
                     window.location.href="/tzxblog";
                 }else if(message == 1){
                     //用户名为空
-                    $("#pu1").text("用户名不能为空");
+                    $("#pu1").text("账号信息不能为空");
                     $("#pu1").css({color:"#993333"})
                 }else if(message == 2){
                     //用户不存在
@@ -43,8 +43,8 @@
                     $("#pu1").css({color:"#FF9966"})
                 }else if(message == 3){
                     //密码错误
-                    $("#pu1").text("密码不正确，请重新输入");
-                    $("#pu1").css({color:"#993333"})
+                    $("#pp1").text("密码不正确，请重新输入");
+                    $("#pp1").css({color:"#FF9966"})
                 }
               },
               error: function (message) {
@@ -74,10 +74,10 @@
                 <a class="nav-link" href="#">关于</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">登录</a>
+                <a class="nav-link" href="#">资料</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">注册</a>
+                <a class="nav-link" href="#">论坛</a>
             </li>
         </ul>
     </nav>
@@ -87,7 +87,7 @@
             <form id="logform" class="form-horizontal mx-auto" action="#">
                 <center><span class="heading" style="font-size:30px;">用户登录</span></center><br/>
                 <div class="form-group">
-                    <p id="pu1" style="display:inline">请输入用户名</p>
+                    <p id="pu1" style="display:inline">请输入账号</p>
                     <input type="email" class="form-control" id="username" name="userAccount" placeholder="用户名或电子邮件"/>
                     <i class="fa fa-user"></i>
                 </div>
@@ -105,7 +105,7 @@
                     </div>
                     
                     <input type="button" id="login"  value="登录"/>
-	                <input class="float-right" id="regist" type="button" value="注册"/>
+	                <a href="./registpage"><input class="float-right" id="regist" type="button" value="注册"/></a>
                 </div>
             </form>
         </div>

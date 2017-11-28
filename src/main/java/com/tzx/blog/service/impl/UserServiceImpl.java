@@ -1,5 +1,8 @@
 package com.tzx.blog.service.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +26,35 @@ public class UserServiceImpl implements UserService {
 		Userinfo userinfo = userDao.findByUserAccount(account);
 		return userinfo;
 
+	}
+
+	@Override
+	public Map<String, Object> addUser(Userinfo userinfo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (userinfo.getUserAccount() == null || "".equals(userinfo.getUserAccount())) {
+			map.put("resultCode", 1);
+			map.put("message", "账号不能为空");
+		} else if (userinfo.getUserPassword() == null || "".equals(userinfo.getUserPassword())) {
+			map.put("resultCode", 2);
+			map.put("message", "密码不能为空");
+		} else if (userinfo.getUserEmail() == null || "".equals(userinfo.getUserEmail())) {
+			map.put("resultCode", 3);
+			map.put("message", "邮箱不能为空");
+		} else {
+			// 设置默认用户名
+			userinfo.setUserName(userinfo.getUserAccount());
+			Userinfo user = null;
+			try {
+				user = userDao.save(userinfo);
+				map.put("resultCode", 0);
+			} catch (Exception e) {
+				// 用户名存在
+				map.put("resultCode", 4);
+				map.put("message", "用户已经存在");
+			}
+		}
+
+		return map;
 	}
 
 }

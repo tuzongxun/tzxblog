@@ -1,5 +1,7 @@
 package com.tzx.blog.service;
 
+import java.util.Map;
+
 import com.tzx.blog.model.Userinfo;
 
 /**
@@ -18,4 +20,12 @@ public interface UserService {
 	 * @return
 	 */
 	public Userinfo findUserByAccount(String account);
+
+	/**
+	 * 用户注册
+	 * 
+	 * @param userinfo
+	 * @return
+	 */
+	public Map<String, Object> addUser(Userinfo userinfo);
 }

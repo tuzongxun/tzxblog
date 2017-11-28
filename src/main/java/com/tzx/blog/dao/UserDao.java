@@ -28,4 +28,5 @@ public interface UserDao extends JpaRepository<Userinfo, Integer> {
 	 * @return
 	 */
 	public Userinfo findByUserAccount(String account);
+
 }
