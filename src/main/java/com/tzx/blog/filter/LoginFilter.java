@@ -43,9 +43,9 @@ public class LoginFilter implements Filter {
 			Userinfo userinfo = (Userinfo) session.getAttribute("user");
 			// 如果已登录或用户名不存在，均跳转到首页
 			if ((userinfo != null && userinfo.getUserName() != null
-					&& (!url.endsWith("login") && !url.endsWith("loginpage")))
+					&& (!url.endsWith("login") && !url.endsWith("loginpage") && !url.endsWith("regist")))
 					|| ((userinfo == null || userinfo.getUserName() == null)
-							&& (url.endsWith("login") || url.endsWith("loginpage")))) {
+							&& (url.endsWith("login") || url.endsWith("loginpage") || url.endsWith("regist")))) {
 				chain.doFilter(request, response);
 			} else {
 				((HttpServletResponse) response).sendRedirect("/tzxblog");

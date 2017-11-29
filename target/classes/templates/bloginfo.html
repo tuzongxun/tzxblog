@@ -65,17 +65,16 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;<h6>访问量：<font th:text="${readCounts}"></font></h6>
                     &nbsp;&nbsp;&nbsp;&nbsp;<h6>博客数：<font th:text="${blogCounts}"></font></h6>
                     &nbsp;&nbsp;&nbsp;&nbsp;<h6>原创数：<font th:text="${myCounts}"></font></h6>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<h6>转载数：<font th:text="${otherCounts}"></font></h6>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<h6>评论数：<font th:text="${commentCounts}"></font></h6> -->
+                    &nbsp;&nbsp;&nbsp;&nbsp;<h6>评论数：<font th:text="${commentCounts}"></font></h6>
                     <hr/>
 				</div>
 				<!-- 主区域 -->
 				
 				<div class="col-sm-10 col-md-10 column">
-				    
+				    <!--
 				    <div class="title">
-                        <table th:each="blogInfo : ${blogList}">
-                            <tr><H3 th:text="${blogInfo.blogTitle}">this is my first blog</H3></tr>
+                        <H3 th:text="${blogInfo.blogTitle}">this is my first blog</H3>
+                        <table >
 							<tr >类型：</tr>
 							<a ><tr th:text="${blogInfo.blogType}" ></tr></a>&nbsp;&nbsp;&nbsp;&nbsp;
 							<tr >时间：</tr>
@@ -85,11 +84,44 @@
 							<tr >评论：</tr>
 							<a href="#"><tr th:text="${blogInfo.blogCommentCount}"></tr></a>&nbsp;&nbsp;&nbsp;&nbsp;
 							<tr >作者：</tr>
-							<a href="#"><tr th:text="${blogInfo.userinfo.userName}"></tr></a>
-							<hr/>
+							<a href="#"><tr th:text="${userInfo.userName}"></tr></a>
 						</table>
                     </div>
+					-->
+                    <hr/>
+                    <!--主要内容-->
+                    <div class="content1" id="curcontent" style="word-wrap:break-word;word-break:normal;width:85%">
+                    </div>
+					<!--
+                    <div id="testEditorMdview">
+                        <textarea th:utext="${blogInfo.blogContent}" id="appendTest" style="display:none;"></textarea>
+                    </div>
+					-->
+                    <!--数据转换为markdown格式-->
+					<!--
+                    <script type="text/javascript" >
+                        var text = document.getElementById("appendTest").value;
+                        var converter = new showdown.Converter();
+                        var html = converter.makeHtml(text);
+                        document.getElementById("curcontent").innerHTML = html;
+                    </script>
+					-->
+                    <br/>
+                    <div class="comments">
+                        <p>发表评论：</p>
+                        <textarea style="width:85%"></textarea><br/>
+                        <ul style="list-style:none;">
+                            <li style="line-height:2.5"><a href="#">这个一个评论测试</a></li>
+                            <li style="line-height:2.5"><a href="#">这个一个评论测试发大水发沙发上发生的发顺丰</a></li>
+                            <li style="line-height:2.5"><a href="#">大沙发啥地方撒旦法师打发斯蒂芬</a></li>
+                            <li style="line-height:2.5"><a href="#">阿斯顿飞洒发大水发的说法</a></li>
+                        </ul>
+                    </div>
+				    <p>
+						<a rel="nofollow" class="btn" href="#">查看更多 »</a>
+					</p>
 			    </div>
+			    <p th:text="${blogPage.content}"></p>
 			</div>
 		</div>
 	 </div>

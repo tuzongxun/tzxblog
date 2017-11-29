@@ -81,6 +81,13 @@ public class UserController {
 		return "regist";
 	}
 
+	/**
+	 * 注册
+	 * 
+	 * @param user
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "regist", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public Object regist(@RequestBody Userinfo user, HttpServletRequest request) {
@@ -89,6 +96,12 @@ public class UserController {
 		return map;
 	}
 
+	/**
+	 * 退出登录
+	 * 
+	 * @param request
+	 * @param response
+	 */
 	@RequestMapping(value = "logout")
 	public void logout(HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute("user");
@@ -99,4 +112,5 @@ public class UserController {
 			logger.error("用户退出异常：{},{}", e);
 		}
 	}
+
 }

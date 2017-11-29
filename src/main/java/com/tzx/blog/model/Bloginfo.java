@@ -6,8 +6,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,6 +27,7 @@ public class Bloginfo implements Serializable {
 
 	@Id
 	@Column(name = "blog_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int blogId;
 	/**
 	 * blog评论数
@@ -39,7 +44,7 @@ public class Bloginfo implements Serializable {
 	/**
 	 * blog最后修改时间
 	 */
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "blog_date")
 	private Date blogDate;
 	/**
@@ -58,10 +63,11 @@ public class Bloginfo implements Serializable {
 	@Column(name = "blog_type")
 	private String blogType;
 	/**
-	 * 用户id
+	 * 多个博客对应一个人，关联字段bloginfo表中user_id字段
 	 */
-	@Column(name = "user_id")
-	private BigInteger userId;
+	@JoinColumn(name = "user_id")
+	@ManyToOne
+	private Userinfo userinfo;
 
 	public Bloginfo() {
 	}
@@ -122,19 +128,27 @@ public class Bloginfo implements Serializable {
 		this.blogType = blogType;
 	}
 
-	public BigInteger getUserId() {
-		return this.userId;
+	public Userinfo getUserinfo() {
+		return userinfo;
 	}
 
-	public void setUserId(BigInteger userId) {
-		this.userId = userId;
+	public void setUserinfo(Userinfo userinfo) {
+		this.userinfo = userinfo;
+	}
+
+	public void setBlogCommentCount(BigInteger blogCommentCount) {
+		this.blogCommentCount = blogCommentCount;
+	}
+
+	public void setBlogReadCount(BigInteger blogReadCount) {
+		this.blogReadCount = blogReadCount;
 	}
 
 	@Override
 	public String toString() {
-		return "Bloginfo [blogId=" + blogId + ", blogCommentcount=" + blogCommentCount + ", blogContent=" + blogContent
-				+ ", blogDate=" + blogDate + ", blogReadcount=" + blogReadCount + ", blogTitle=" + blogTitle
-				+ ", blogType=" + blogType + ", userId=" + userId + "]";
+		return "Bloginfo [blogId=" + blogId + ", blogCommentCount=" + blogCommentCount + ", blogContent=" + blogContent
+				+ ", blogDate=" + blogDate + ", blogReadCount=" + blogReadCount + ", blogTitle=" + blogTitle
+				+ ", blogType=" + blogType + ", userinfo=" + userinfo + "]";
 	}
 
 }

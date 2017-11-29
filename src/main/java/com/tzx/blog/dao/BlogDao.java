@@ -20,4 +20,6 @@ public interface BlogDao extends JpaRepository<Bloginfo, Integer> {
 	 * @return
 	 */
 	public Bloginfo findByBlogId(int blogId);
+
+	public long countByBlogType(String blogType);
 }

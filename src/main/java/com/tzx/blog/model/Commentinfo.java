@@ -36,7 +36,7 @@ public class Commentinfo implements Serializable {
 	/**
 	 * 评论时间
 	 */
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "comment_date")
 	private Date commentDate;
 	/**
