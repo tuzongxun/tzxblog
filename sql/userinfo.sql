@@ -26,9 +26,10 @@ CREATE TABLE `userinfo` (
   `user_password` varchar(20) NOT NULL,
   `user_name` varchar(20) NOT NULL,
   `user_phone` varchar(20) DEFAULT NULL,
-  `user_email` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_email` varchar(20) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_account` (`user_account`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

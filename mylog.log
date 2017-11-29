@@ -1,0 +1,131 @@
+2017-11-28 18:27:34.296  INFO 17536 --- [main] com.tzx.blog.TzxblogApplication          : Starting TzxblogApplication on tuzongxun with PID 17536 (G:\myProjects\tzxblog\target\classes started by tzx in G:\myProjects\tzxblog)
+2017-11-28 18:27:34.300  INFO 17536 --- [main] com.tzx.blog.TzxblogApplication          : The following profiles are active: dev
+2017-11-28 18:27:34.610  INFO 17536 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:27:34 CST 2017]; root of context hierarchy
+2017-11-28 18:27:36.565  INFO 17536 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-11-28 18:27:36.600  INFO 17536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-11-28 18:27:36.601  INFO 17536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2017-11-28 18:27:36.715  INFO 17536 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-11-28 18:27:36.715  INFO 17536 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2109 ms
+2017-11-28 18:27:36.899  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 18:27:36.904  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 18:27:36.905  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 18:27:36.905  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 18:27:36.905  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 18:27:36.905  INFO 17536 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'com.tzx.blog.filter.LoginFilter' to: [/*]
+2017-11-28 18:27:37.261  INFO 17536 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:27:37.284  INFO 17536 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-11-28 18:27:37.369  INFO 17536 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2017-11-28 18:27:37.370  INFO 17536 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2017-11-28 18:27:37.372  INFO 17536 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2017-11-28 18:27:37.417  INFO 17536 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-11-28 18:27:37.997  INFO 17536 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-11-28 18:27:38.429  INFO 17536 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2017-11-28 18:27:38.582  INFO 17536 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:27:39.227  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:27:34 CST 2017]; root of context hierarchy
+2017-11-28 18:27:39.321  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog]}" onto public java.lang.String com.tzx.blog.controller.BlogController.index(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:27:39.322  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/categories]}" onto public java.lang.String com.tzx.blog.controller.BlogController.categories(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:27:39.325  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/loginpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.loginpage()
+2017-11-28 18:27:39.325  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/login],methods=[POST],consumes=[application/json]}" onto public int com.tzx.blog.controller.UserController.login(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:27:39.326  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/regist],methods=[POST],consumes=[application/json]}" onto public java.lang.Object com.tzx.blog.controller.UserController.regist(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:27:39.326  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/logout]}" onto public void com.tzx.blog.controller.UserController.logout(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:27:39.326  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/registpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.registpage()
+2017-11-28 18:27:39.331  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 18:27:39.332  INFO 17536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:27:39.357  INFO 17536 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:27:39.357  INFO 17536 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:27:39.392  INFO 17536 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:27:39.925  INFO 17536 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-11-28 18:27:39.992  INFO 17536 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-11-28 18:27:39.997  INFO 17536 --- [main] com.tzx.blog.TzxblogApplication          : Started TzxblogApplication in 6.035 seconds (JVM running for 6.396)
+2017-11-28 18:35:16.981  INFO 26588 --- [main] com.tzx.blog.TzxblogApplication          : Starting TzxblogApplication on tuzongxun with PID 26588 (G:\myProjects\tzxblog\target\classes started by tzx in G:\myProjects\tzxblog)
+2017-11-28 18:35:16.986  INFO 26588 --- [main] com.tzx.blog.TzxblogApplication          : The following profiles are active: dev
+2017-11-28 18:35:17.464  INFO 26588 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:35:17 CST 2017]; root of context hierarchy
+2017-11-28 18:35:19.646  INFO 26588 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-11-28 18:35:19.661  INFO 26588 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-11-28 18:35:19.663  INFO 26588 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2017-11-28 18:35:19.804  INFO 26588 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-11-28 18:35:19.804  INFO 26588 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2343 ms
+2017-11-28 18:35:19.992  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 18:35:19.996  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 18:35:19.996  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 18:35:19.996  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 18:35:19.996  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 18:35:19.997  INFO 26588 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'com.tzx.blog.filter.LoginFilter' to: [/*]
+2017-11-28 18:35:20.362  INFO 26588 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:35:20.381  INFO 26588 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-11-28 18:35:20.472  INFO 26588 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2017-11-28 18:35:20.473  INFO 26588 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2017-11-28 18:35:20.475  INFO 26588 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2017-11-28 18:35:20.525  INFO 26588 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-11-28 18:35:21.158  INFO 26588 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-11-28 18:35:21.608  INFO 26588 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2017-11-28 18:35:21.767  INFO 26588 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:35:22.605  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:35:17 CST 2017]; root of context hierarchy
+2017-11-28 18:35:22.728  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog]}" onto public java.lang.String com.tzx.blog.controller.BlogController.index(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:35:22.729  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/categories]}" onto public java.lang.String com.tzx.blog.controller.BlogController.categories(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:35:22.733  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/registpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.registpage()
+2017-11-28 18:35:22.734  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/regist],methods=[POST],consumes=[application/json]}" onto public java.lang.Object com.tzx.blog.controller.UserController.regist(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:35:22.736  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/logout]}" onto public void com.tzx.blog.controller.UserController.logout(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:35:22.737  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/loginpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.loginpage()
+2017-11-28 18:35:22.738  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/login],methods=[POST],consumes=[application/json]}" onto public int com.tzx.blog.controller.UserController.login(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:35:22.742  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 18:35:22.744  INFO 26588 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:35:22.817  INFO 26588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:35:22.817  INFO 26588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:35:22.873  INFO 26588 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:35:23.487  INFO 26588 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-11-28 18:35:23.612  INFO 26588 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-11-28 18:35:23.620  INFO 26588 --- [main] com.tzx.blog.TzxblogApplication          : Started TzxblogApplication in 7.086 seconds (JVM running for 7.595)
+2017-11-28 18:35:44.396  INFO 26588 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-11-28 18:35:44.397  INFO 26588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-11-28 18:35:44.425  INFO 26588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2017-11-28 18:35:44.596  WARN 26588 --- [http-nio-8080-exec-1] com.tzx.blog.controller.BlogController   : aaaaaaaaa
+2017-11-28 18:36:24.560  INFO 20644 --- [main] com.tzx.blog.TzxblogApplication          : Starting TzxblogApplication on tuzongxun with PID 20644 (G:\myProjects\tzxblog\target\classes started by tzx in G:\myProjects\tzxblog)
+2017-11-28 18:36:24.564  INFO 20644 --- [main] com.tzx.blog.TzxblogApplication          : The following profiles are active: dev
+2017-11-28 18:36:24.869  INFO 20644 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:36:24 CST 2017]; root of context hierarchy
+2017-11-28 18:36:26.931  INFO 20644 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-11-28 18:36:26.946  INFO 20644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-11-28 18:36:26.948  INFO 20644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2017-11-28 18:36:27.098  INFO 20644 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-11-28 18:36:27.099  INFO 20644 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2233 ms
+2017-11-28 18:36:27.313  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 18:36:27.318  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 18:36:27.319  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 18:36:27.319  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 18:36:27.319  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 18:36:27.320  INFO 20644 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'com.tzx.blog.filter.LoginFilter' to: [/*]
+2017-11-28 18:36:28.228  INFO 20644 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:36:28.253  INFO 20644 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-11-28 18:36:28.486  INFO 20644 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2017-11-28 18:36:28.490  INFO 20644 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2017-11-28 18:36:28.492  INFO 20644 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2017-11-28 18:36:28.591  INFO 20644 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-11-28 18:36:29.147  INFO 20644 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2017-11-28 18:36:29.655  INFO 20644 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2017-11-28 18:36:29.812  INFO 20644 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-11-28 18:36:30.490  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1a052a00: startup date [Tue Nov 28 18:36:24 CST 2017]; root of context hierarchy
+2017-11-28 18:36:30.608  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog]}" onto public java.lang.String com.tzx.blog.controller.BlogController.index(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:36:30.612  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/categories]}" onto public java.lang.String com.tzx.blog.controller.BlogController.categories(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.ModelMap)
+2017-11-28 18:36:30.615  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/loginpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.loginpage()
+2017-11-28 18:36:30.615  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/logout]}" onto public void com.tzx.blog.controller.UserController.logout(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:36:30.616  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/login],methods=[POST],consumes=[application/json]}" onto public int com.tzx.blog.controller.UserController.login(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:36:30.616  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/regist],methods=[POST],consumes=[application/json]}" onto public java.lang.Object com.tzx.blog.controller.UserController.regist(com.tzx.blog.model.Userinfo,javax.servlet.http.HttpServletRequest)
+2017-11-28 18:36:30.617  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tzxblog/registpage]}" onto public java.lang.String com.tzx.blog.controller.UserController.registpage()
+2017-11-28 18:36:30.620  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 18:36:30.621  INFO 20644 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 18:36:30.646  INFO 20644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:36:30.647  INFO 20644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:36:30.678  INFO 20644 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 18:36:31.306  INFO 20644 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-11-28 18:36:31.400  INFO 20644 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-11-28 18:36:31.405  INFO 20644 --- [main] com.tzx.blog.TzxblogApplication          : Started TzxblogApplication in 7.189 seconds (JVM running for 7.609)
+2017-11-28 18:36:33.411  INFO 20644 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-11-28 18:36:33.411  INFO 20644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-11-28 18:36:33.443  INFO 20644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2017-11-28 18:36:33.634  WARN 20644 --- [http-nio-8080-exec-1] com.tzx.blog.controller.BlogController   : aaaaaaaaa

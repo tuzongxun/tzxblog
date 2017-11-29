@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,7 @@ import com.tzx.blog.service.UserService;
 @Controller
 @RequestMapping("tzxblog")
 public class UserController {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private UserService userService;
 
@@ -53,6 +56,7 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public int login(@RequestBody Userinfo user, HttpServletRequest request) {
+		logger.warn("操作：{}", "登录");
 		if (user == null || user.getUserAccount() == null || "".equals(user.getUserAccount())) {
 			return 1;
 		}
@@ -63,6 +67,7 @@ public class UserController {
 			return 3;
 		}
 		request.getSession().setAttribute("user", userinfo);
+		logger.warn("用户登录成功：{},{}", new Object[] { userinfo.getUserAccount(), userinfo.getUserName() });
 		return 0;
 	}
 
@@ -79,6 +84,7 @@ public class UserController {
 	@RequestMapping(value = "regist", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public Object regist(@RequestBody Userinfo user, HttpServletRequest request) {
+		logger.warn("操作：{}", "用户注册");
 		Map<String, Object> map = userService.addUser(user, request);
 		return map;
 	}
@@ -90,6 +96,7 @@ public class UserController {
 			response.sendRedirect("/tzxblog");
 		} catch (IOException e) {
 			e.printStackTrace();
+			logger.error("用户退出异常：{},{}", e);
 		}
 	}
 }

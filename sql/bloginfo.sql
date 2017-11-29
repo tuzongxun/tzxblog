@@ -24,13 +24,13 @@ CREATE TABLE `bloginfo` (
   `blog_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `blog_content` text NOT NULL,
   `blog_title` varchar(225) NOT NULL,
-  `blog_type` int(11) NOT NULL DEFAULT '0',
+  `blog_type` varchar(4) NOT NULL DEFAULT '转载',
   `blog_date` datetime NOT NULL,
   `blog_readcount` bigint(20) NOT NULL DEFAULT '0',
   `blog_commentcount` bigint(20) NOT NULL DEFAULT '0',
   `user_id` bigint(20) NOT NULL,
   PRIMARY KEY (`blog_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

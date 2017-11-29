@@ -3,6 +3,8 @@ package com.tzx.blog.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,6 +21,7 @@ import com.tzx.blog.service.BlogService;
 @Controller
 @RequestMapping("tzxblog")
 public class BlogController {
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	BlogService blogService;
 
@@ -32,6 +35,7 @@ public class BlogController {
 	 */
 	@RequestMapping("")
 	public String index(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+		log.warn("操作：{}", "首页访问");
 		blogService.findBlogById(1, map, request);
 		return "index";
 	}
@@ -46,6 +50,7 @@ public class BlogController {
 	 */
 	@RequestMapping("/categories")
 	public String categories(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+		log.warn("操作：{}", "分类页访问");
 		blogService.findCategories(map);
 		return "categories";
 	}
