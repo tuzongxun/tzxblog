@@ -23,19 +23,9 @@ public class BlogServiceImpl implements BlogService {
 	BlogDao blogDao;
 
 	@Override
-	public ModelMap findBlogById(int blogId, ModelMap map, HttpServletRequest request) {
-		long blogCounts = blogDao.count();
+	public Bloginfo findBlogById(int blogId, ModelMap map, HttpServletRequest request) {
 		Bloginfo bloginfo = blogDao.findByBlogId(blogId);
-		// Userinfo userinfo =
-		// userDao.findByUserId(Integer.parseInt(bloginfo.getUserId().toString()));
-		map.addAttribute("readCounts", TzxData.readCounts);
-		map.addAttribute("blogCounts", blogCounts);
-		map.addAttribute("myCounts", 1);
-		map.addAttribute("otherCounts", 1);
-		map.addAttribute("commentCounts", 99);
-		map.addAttribute("blogInfo", bloginfo);
-		// map.addAttribute("userInfo", userinfo);
-		return map;
+		return bloginfo;
 	}
 
 	@Override

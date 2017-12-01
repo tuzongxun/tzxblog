@@ -17,7 +17,7 @@ public interface BlogService {
 	/**
 	 * 查询blog明细
 	 */
-	public ModelMap findBlogById(int blogId, ModelMap map, HttpServletRequest request);
+	public Bloginfo findBlogById(int blogId, ModelMap map, HttpServletRequest request);
 
 	public ModelMap findCategories(ModelMap map);
 

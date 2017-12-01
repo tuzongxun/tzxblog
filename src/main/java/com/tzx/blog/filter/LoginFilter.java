@@ -37,11 +37,13 @@ public class LoginFilter implements Filter {
 		HttpSession session = request2.getSession();
 		String url = request2.getRequestURI();
 		// 注册和首页直接放行,静态文件直接放行
-		if (url.endsWith("registpage") || url.endsWith("tzxblog") || url.contains(".")) {
+		if (url.endsWith("registpage") || url.endsWith("tzxblog") || url.endsWith("openBlog") || url.contains(".")) {
 			chain.doFilter(request, response);
 		} else {
 			Userinfo userinfo = (Userinfo) session.getAttribute("user");
-			// 如果已登录或用户名不存在，均跳转到首页
+			// 已登录userinfo != null && userinfo.getUserName() != null
+			// 非登录请求、非登录页请求、非注册请求(!url.endsWith("login") &&
+			// !url.endsWith("loginpage") && !url.endsWith("regist"))
 			if ((userinfo != null && userinfo.getUserName() != null
 					&& (!url.endsWith("login") && !url.endsWith("loginpage") && !url.endsWith("regist")))
 					|| ((userinfo == null || userinfo.getUserName() == null)

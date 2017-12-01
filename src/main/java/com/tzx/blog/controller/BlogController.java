@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tzx.blog.model.Bloginfo;
 import com.tzx.blog.model.Userinfo;
@@ -41,15 +43,14 @@ public class BlogController {
 	public String index(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		log.warn("操作：{}", "首页访问");
 		blogService.sysInfo(map);
-		// blogService.findBlogById(1, map, request);
 		Page<Bloginfo> blogPage = blogService.findBlogList();
 		map.put("blogList", blogPage.getContent());
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession();
 		if (session == null || session.getAttribute("user") == null) {
-			map.addAttribute("islogin", true);
-			map.put("logUser", (Userinfo) request.getAttribute("user"));
-		} else {
 			map.addAttribute("islogin", false);
+		} else {
+			map.addAttribute("islogin", true);
+			map.addAttribute("logUser", (Userinfo) session.getAttribute("user"));
 		}
 		return "index";
 	}
@@ -62,10 +63,17 @@ public class BlogController {
 	 * @param map
 	 * @return
 	 */
-	@RequestMapping("/categories")
+	@RequestMapping("categories")
 	public String categories(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
 		log.warn("操作：{}", "分类页访问");
 		blogService.findCategories(map);
 		return "categories";
+	}
+
+	@RequestMapping(value = "openBlog", method = RequestMethod.POST)
+	@ResponseBody
+	public Bloginfo openBlog(Integer blogId, ModelMap map, HttpServletRequest request) {
+		Bloginfo bloginfo = blogService.findBlogById(blogId, map, request);
+		return bloginfo;
 	}
 }

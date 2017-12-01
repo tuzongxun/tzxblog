@@ -12,58 +12,58 @@
     margin-top: 30px;
 }
          #footer{
-             background: #DCDCDC
+            /* background: #DCDCDC*/
          }
-         #content .main{
-             height: 600px;
-             /*background: #F8F8FF;*/
-             overflow: auto;
-         }
+#content .main{
+             /*height: 600px;
+             background: #F8F8FF;
+             overflow: auto;*/
+}
          #content .main .title{
-             height: auto;
+             /*height: auto;
              margin:0px; 
              padding:0px;
-             /*background: #F8F8FF;*/
+             background: #F8F8FF;*/
              /*overflow: auto;*/
          }
-         #content .main .content1{
-             height: auto;
+#content .main .content1{
+             /*height: auto;
              margin-left:30px;
              width:97%;
-             /*background: #F8F8FF;*/
+             background: #F8F8FF;*/
              /*overflow: auto;*/
-         }
+}
          
          #content .main .comments{
-             height: auto;
+             /*height: auto;
              width:100%;
-             /*background: #F8F8FF;*/
+             background: #F8F8FF;*/
              /*overflow: auto;*/
          }
          
          #content .aside{
-             height: 600px;
+             /*height: 600px;
              width: 250px;
              background: #F8F8FF;
-             float: left;
+             float: left;*/
          }
 
          #headNavi{
-             height: 40px;
+             /*height: 40px;
              width: 100%;
              background: black;
              color: white;
-             font-size: 24px;
+             font-size: 24px;*/
          }       
          
         #ul1{
-           list-style-type:none;
+           /*list-style-type:none;
            margin:0;
            padding:0;
-           overflow:hidden;
+           overflow:hidden;*/
           }
         .li1{
-           float:left;
+           /*float:left;*/
          }
          a:link,a:visited{
           text-align:center;
@@ -78,16 +78,16 @@
         .ha:link,a:visited{
           /*background-color: black;
           background-color: #000000;*/
-          color: #993333;
+           /*color: #993333;
           font-weight: bold;
           width: 120px;
           display: block;
           text-transform: uppercase;
-          /*color: white;*/
+         color: white;*/
          }
         .ha:hover,a:active{
-          background-color: #cc0000;
+          /* background-color: #cc0000;
           color: white;
-         /* color: #FFFFFF;*/
+         color: #FFFFFF;*/
           }
 

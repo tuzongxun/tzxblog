@@ -1,6 +1,7 @@
 package com.tzx.blog.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,20 +56,26 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
-	public int login(@RequestBody Userinfo user, HttpServletRequest request) {
+	public Map<String, Object> login(@RequestBody Userinfo user, HttpServletRequest request) {
 		logger.warn("操作：{}", "登录");
+		Map<String, Object> map = new HashMap<String, Object>();
 		if (user == null || user.getUserAccount() == null || "".equals(user.getUserAccount())) {
-			return 1;
+			map.put("resCode", 1);
+			return map;
 		}
 		Userinfo userinfo = userService.findUserByAccount(user.getUserAccount());
 		if (userinfo == null) {
-			return 2;
+			map.put("resCode", 2);
+			return map;
 		} else if (!(userinfo.getUserPassword().equals(user.getUserPassword()))) {
-			return 3;
+			map.put("resCode", 3);
+			return map;
 		}
+		System.out.println("user:" + request.getSession().getId());
 		request.getSession().setAttribute("user", userinfo);
 		logger.warn("用户登录成功：{},{}", new Object[] { userinfo.getUserAccount(), userinfo.getUserName() });
-		return 0;
+		map.put("resCode", 0);
+		return map;
 	}
 
 	/**

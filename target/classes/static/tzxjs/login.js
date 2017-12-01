@@ -15,7 +15,7 @@ $(document).ready(function(){
               success: function (message) {
               console.log(message);
               //请求成功，跳转到首页
-                if (message == 0) {
+                if (message.resCode == 0) {
                     //登录成功
                     window.location.href="/tzxblog";
                 }else if(message == 1){
