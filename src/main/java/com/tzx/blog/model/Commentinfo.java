@@ -7,6 +7,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,10 +26,11 @@ public class Commentinfo implements Serializable {
 	@Column(name = "comment_id")
 	private int commentId;
 	/**
-	 * blog的id
+	 * blog的id,多个评论对应一篇博客
 	 */
-	@Column(name = "blog_id")
-	private BigInteger blogId;
+	@JoinColumn(name = "blog_id")
+	@ManyToOne
+	private Bloginfo blogInfo;
 	/**
 	 * 评论内容
 	 */
@@ -56,12 +59,12 @@ public class Commentinfo implements Serializable {
 		this.commentId = commentId;
 	}
 
-	public BigInteger getBlogId() {
-		return this.blogId;
+	public Bloginfo getBlogInfo() {
+		return blogInfo;
 	}
 
-	public void setBlogId(BigInteger blogId) {
-		this.blogId = blogId;
+	public void setBlogInfo(Bloginfo blogInfo) {
+		this.blogInfo = blogInfo;
 	}
 
 	public String getCommentContent() {
@@ -90,7 +93,7 @@ public class Commentinfo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Commentinfo [commentId=" + commentId + ", blogId=" + blogId + ", commentContent=" + commentContent
+		return "Commentinfo [commentId=" + commentId + ", blogId=" + blogInfo + ", commentContent=" + commentContent
 				+ ", commentDate=" + commentDate + ", userId=" + userId + "]";
 	}
 
