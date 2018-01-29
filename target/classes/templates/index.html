@@ -114,11 +114,13 @@
                     <!--主要内容-->
                     <div class="content1" id="curcontent" style="word-wrap:break-word;word-break:normal;width:85%">
                     </div>
-					<!--
+					
                     <br/>
                     <div class="comments">
                         <p>发表评论：</p>
-                        <textarea style="width:85%"></textarea><br/>
+                        <textarea style="width:85%" id="pushcomm"></textarea><br/>
+                        <button th:onclick="'pushcomment()'">发表评论</button>
+                        <p>评论列表：</p>
                         <ul style="list-style:none;">
                             <li style="line-height:2.5"><a href="#">这个一个评论测试</a></li>
                             <li style="line-height:2.5"><a href="#">这个一个评论测试发大水发沙发上发生的发顺丰</a></li>
@@ -129,7 +131,7 @@
 				    <p>
 						<a rel="nofollow" class="btn" href="#">查看更多 »</a>
 					</p>
-					-->
+					
 			    </div>
 			</div>
 		</div>
