@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,19 +26,17 @@ import com.tzx.blog.service.UserService;
  * @author tzx
  *
  */
+@Slf4j
 @Controller
 @RequestMapping("tzxblog")
 public class UserController {
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	// private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private UserService userService;
 
 	/**
 	 * 用户登录页面
-	 * 
-	 * @param request
-	 * @param response
-	 * @param map
+	 *
 	 * @return
 	 */
 	@RequestMapping("/loginpage")
@@ -50,14 +49,12 @@ public class UserController {
 	 * 
 	 * @param user
 	 * @param request
-	 * @param response
-	 * @param map
 	 * @return 0:登录成功，1：用户名不能为空，2：用户名不存在，3：密码错误
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public Map<String, Object> login(@RequestBody Userinfo user, HttpServletRequest request) {
-		logger.warn("操作：{}", "登录");
+		log.warn("操作：{}", "登录");
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (user == null || user.getUserAccount() == null || "".equals(user.getUserAccount())) {
 			map.put("resCode", 1);
@@ -73,7 +70,7 @@ public class UserController {
 		}
 		System.out.println("user:" + request.getSession().getId());
 		request.getSession().setAttribute("user", userinfo);
-		logger.warn("用户登录成功：{},{}", new Object[] { userinfo.getUserAccount(), userinfo.getUserName() });
+		log.warn("用户登录成功：{},{}", new Object[] { userinfo.getUserAccount(), userinfo.getUserName() });
 		map.put("resCode", 0);
 		return map;
 	}
@@ -98,7 +95,7 @@ public class UserController {
 	@RequestMapping(value = "regist", method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public Object regist(@RequestBody Userinfo user, HttpServletRequest request) {
-		logger.warn("操作：{}", "用户注册");
+		log.warn("操作：{}", "用户注册");
 		Map<String, Object> map = userService.addUser(user, request);
 		return map;
 	}
@@ -116,7 +113,7 @@ public class UserController {
 			response.sendRedirect("/tzxblog");
 		} catch (IOException e) {
 			e.printStackTrace();
-			logger.error("用户退出异常：{},{}", e);
+			log.error("用户退出异常：{},{}", e);
 		}
 	}
 

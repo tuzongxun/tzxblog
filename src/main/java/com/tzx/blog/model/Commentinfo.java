@@ -1,5 +1,7 @@
 package com.tzx.blog.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
@@ -17,6 +19,7 @@ import javax.persistence.TemporalType;
  * blog评论实体
  * 
  */
+@Data
 @Entity
 @NamedQuery(name = "Commentinfo.findAll", query = "SELECT c FROM Commentinfo c")
 public class Commentinfo implements Serializable {
@@ -47,54 +50,4 @@ public class Commentinfo implements Serializable {
 	 */
 	@Column(name = "user_id")
 	private BigInteger userId;
-
-	public Commentinfo() {
-	}
-
-	public int getCommentId() {
-		return this.commentId;
-	}
-
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
-	}
-
-	public Bloginfo getBlogInfo() {
-		return blogInfo;
-	}
-
-	public void setBlogInfo(Bloginfo blogInfo) {
-		this.blogInfo = blogInfo;
-	}
-
-	public String getCommentContent() {
-		return this.commentContent;
-	}
-
-	public void setCommentContent(String commentContent) {
-		this.commentContent = commentContent;
-	}
-
-	public Date getCommentDate() {
-		return this.commentDate;
-	}
-
-	public void setCommentDate(Date commentDate) {
-		this.commentDate = commentDate;
-	}
-
-	public BigInteger getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(BigInteger userId) {
-		this.userId = userId;
-	}
-
-	@Override
-	public String toString() {
-		return "Commentinfo [commentId=" + commentId + ", blogId=" + blogInfo + ", commentContent=" + commentContent
-				+ ", commentDate=" + commentDate + ", userId=" + userId + "]";
-	}
-
 }

@@ -1,5 +1,7 @@
 package com.tzx.blog.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
@@ -20,6 +22,7 @@ import javax.persistence.TemporalType;
  * blog实体
  * 
  */
+@Data
 @Entity
 @NamedQuery(name = "Bloginfo.findAll", query = "SELECT b FROM Bloginfo b")
 public class Bloginfo implements Serializable {
@@ -68,87 +71,5 @@ public class Bloginfo implements Serializable {
 	@JoinColumn(name = "user_id")
 	@ManyToOne
 	private Userinfo userinfo;
-
-	public Bloginfo() {
-	}
-
-	public int getBlogId() {
-		return this.blogId;
-	}
-
-	public void setBlogId(int blogId) {
-		this.blogId = blogId;
-	}
-
-	public BigInteger getBlogCommentCount() {
-		return this.blogCommentCount;
-	}
-
-	public void setBlogCommentcount(BigInteger blogCommentCount) {
-		this.blogCommentCount = blogCommentCount;
-	}
-
-	public String getBlogContent() {
-		return this.blogContent;
-	}
-
-	public void setBlogContent(String blogContent) {
-		this.blogContent = blogContent;
-	}
-
-	public Date getBlogDate() {
-		return this.blogDate;
-	}
-
-	public void setBlogDate(Date blogDate) {
-		this.blogDate = blogDate;
-	}
-
-	public BigInteger getBlogReadCount() {
-		return this.blogReadCount;
-	}
-
-	public void setBlogReadcount(BigInteger blogReadCount) {
-		this.blogReadCount = blogReadCount;
-	}
-
-	public String getBlogTitle() {
-		return this.blogTitle;
-	}
-
-	public void setBlogTitle(String blogTitle) {
-		this.blogTitle = blogTitle;
-	}
-
-	public String getBlogType() {
-		return this.blogType;
-	}
-
-	public void setBlogType(String blogType) {
-		this.blogType = blogType;
-	}
-
-	public Userinfo getUserinfo() {
-		return userinfo;
-	}
-
-	public void setUserinfo(Userinfo userinfo) {
-		this.userinfo = userinfo;
-	}
-
-	public void setBlogCommentCount(BigInteger blogCommentCount) {
-		this.blogCommentCount = blogCommentCount;
-	}
-
-	public void setBlogReadCount(BigInteger blogReadCount) {
-		this.blogReadCount = blogReadCount;
-	}
-
-	@Override
-	public String toString() {
-		return "Bloginfo [blogId=" + blogId + ", blogCommentCount=" + blogCommentCount + ", blogContent=" + blogContent
-				+ ", blogDate=" + blogDate + ", blogReadCount=" + blogReadCount + ", blogTitle=" + blogTitle
-				+ ", blogType=" + blogType + ", userinfo=" + userinfo + "]";
-	}
 
 }
