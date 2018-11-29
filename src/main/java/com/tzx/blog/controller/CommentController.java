@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.tzx.blog.model.Userinfo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,12 +50,13 @@ public class CommentController {
 		Commentinfo commentInfo = new Commentinfo();
 		Bloginfo bloginfo = new Bloginfo();
 		bloginfo.setBlogId(1);
-		commentInfo.setBlogInfo(bloginfo);
+		// commentInfo.setBlogInfo(bloginfo);
 		commentInfo.setCommentContent(comment);
 		commentInfo.setCommentDate(new Date());
 		commentInfo.setCommentId(1);
-		BigInteger bigInteger = new BigInteger("1");
-		commentInfo.setUserId(bigInteger);
+		Userinfo user=new Userinfo();
+		user.setUserId(1);
+		commentInfo.setUser(user);
 		commentService.addComment(commentInfo);
 		// blogService.findCategories(map);
 		return "success";

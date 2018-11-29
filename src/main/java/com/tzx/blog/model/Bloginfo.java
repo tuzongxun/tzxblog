@@ -5,18 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
  * blog实体
@@ -71,5 +62,12 @@ public class Bloginfo implements Serializable {
 	@JoinColumn(name = "user_id")
 	@ManyToOne
 	private Userinfo userinfo;
+
+	/**
+	 * 一个博客对应多个评论，关联字段commentinfo表中blog_id字段
+	 */
+	@JoinColumn(name = "blog_id")
+	@OneToMany
+	private List<Commentinfo> comList;
 
 }
