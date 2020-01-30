@@ -14,3 +14,4 @@ v1.0：初始博客部分简单可用版本，前台页面使用thymeleaf模板�
 [tzxblog博客系统-需求及立项说明](https://blog.tzxcode.cn/2020/01/30/tzxblog2/)
 
 ### CSDN博客
+[tzxblog博客系统-需求及立项说明](https://tuzongxun.blog.csdn.net/article/details/104116688)
