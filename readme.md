@@ -15,9 +15,11 @@ v1.0：初始博客部分简单可用版本，前台页面使用thymeleaf模板�
 [tzxblog博客系统-概要设计](https://blog.tzxcode.cn/2020/02/01/tzxblog3/)<br/>
 [vue+element-ui搭建纯前台项目记录](https://blog.tzxcode.cn/2019/01/29/front1/)<br/>
 [vue项目搭建问题记录](https://blog.tzxcode.cn/2020/01/28/vue1/)<br/>
+[tzxblog博客系统-接口文档](https://blog.tzxcode.cn/2020/02/02/tzxblog4/)<br/>
 
 ### CSDN博客
 [tzxblog博客系统-需求及立项说明](https://tuzongxun.blog.csdn.net/article/details/104116688)<br/>
 [tzxblog博客系统-概要设计](https://blog.csdn.net/tuzongxun/article/details/104130855)<br/>
 [vue+element-ui搭建纯前台项目记录](https://blog.csdn.net/tuzongxun/article/details/86688216)<br/>
 [vue项目搭建问题记录](https://blog.csdn.net/tuzongxun/article/details/104100344)<br/>
+[tzxblog博客系统-接口文档](https://tuzongxun.blog.csdn.net/article/details/104146216)<br/>
