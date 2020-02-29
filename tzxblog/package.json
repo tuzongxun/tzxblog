@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "babel-plugin-import": "^1.13.0",
     "core-js": "^3.4.4",
+    "vant": "^2.5.3",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3"
   },

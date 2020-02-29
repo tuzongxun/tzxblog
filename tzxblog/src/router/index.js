@@ -1,14 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import BlogHome from '../views/BlogHome.vue'
+import { Tab, Tabs } from 'vant';
+import { Sidebar, SidebarItem } from 'vant';
+
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
+
+Vue.use(Tab);
+Vue.use(Tabs);
+
 
 Vue.use(VueRouter)
+
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'BlogHome',
+    component: BlogHome
   },
   {
     path: '/about',
