@@ -1,0 +1,36 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.body{
+	background: #F5F5F5;
+}
+.main{
+	background: grey;
+}
+.blogLeft{
+	float: left;
+	width: 100px;
+	text-align: left;
+	padding-left: 10px;
+}
+.blogLeft li{
+	list-style: none;
+	height: 50px;
+	line-height: 40px;
+	/*margin-bottom: 5px;*/
+	background-color: #F5F5F5;
+	cursor: pointer;
+}
+.chooseli{
+	background-color: white;
+}
+.blogRight{
+	float:right;
+	width:300px;
+}
+.blogMain{
+	background: green;
+	width:100%;
+	height: auto;
+}
