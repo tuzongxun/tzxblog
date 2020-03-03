@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import BlogHome from '../views/BlogHome.vue'
 import { Tab, Tabs } from 'vant';
 import { Sidebar, SidebarItem } from 'vant';
+import { Icon } from 'vant';
+
+Vue.use(Icon);
 
 Vue.use(Sidebar);
 Vue.use(SidebarItem);

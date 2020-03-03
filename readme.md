@@ -23,3 +23,4 @@ v1.0：初始博客部分简单可用版本，前台页面使用thymeleaf模板�
 [vue+element-ui搭建纯前台项目记录](https://blog.csdn.net/tuzongxun/article/details/86688216)<br/>
 [vue项目搭建问题记录](https://blog.csdn.net/tuzongxun/article/details/104100344)<br/>
 [tzxblog博客系统-接口文档](https://tuzongxun.blog.csdn.net/article/details/104146216)<br/>
+[tzxblog博客系统-vue前端项目搭建和要点记录](https://blog.csdn.net/tuzongxun/article/details/104590507)<br/>

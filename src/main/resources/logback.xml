@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds">
+    <!-- 定义日志规范 -->
+    <!-- 日志输入目录 -->
+	<property name="LOG_ROOT" value="C:\\Users\\tzx\\Desktop\\mylog" />  
+	<!-- 日志文件名 --> 
+	<property name="LOG_FILENAME" value="tzxlog" />
+	<!-- 单个日志文件最大容量 --> 
+	<property name="LOG_MAXFILESIZE" value="50MB" />
+	<!-- 保存时间 单位天 -->
+	<property name="LOG_MAXHISTORY" value="30" />
+	<!-- 控制台日志输出格式 -->
+	<property name="LOG_PATTERN" value="%date{ISO8601} %-5level [%thread] %class.%method\\(%line\\) - %msg%n" />
+	<!-- 引用springboot配置项 -->
+	<springProperty scope="context" name="APP_NAME" source="spring.application.name" />
+	<springProperty scope="context" name="ENV" source="spring.profiles.active" />
+	
+   <!-- 定义控制台日志输出 -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8">
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+    
+    <!-- 定义日志文件输出 -->
+	<appender name="RFA"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_ROOT}/${LOG_FILENAME}.log</file>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_ROOT}/${LOG_FILENAME}-%d{yyyyMMdd}-%i.log
+			</fileNamePattern>
+			<maxFileSize>${LOG_MAXFILESIZE}</maxFileSize>
+			<maxHistory>${LOG_MAXHISTORY}</maxHistory>
+		</rollingPolicy>
+		<!-- 定义日志文件输出格式 -->
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder"
+			charset="UTF-8">
+			<!-- 自定义日志属性 -->
+			<customFields>{"application_name":"${APP_NAME}","env":"${ENV}"}</customFields>
+		</encoder>
+	</appender>
+
+        <!-- 定义程序日志输出级别 -->
+	<logger name="org.springframework" level="warn" />
+	<logger name="org.apache.commons" level="warn" />
+	<logger name="org.apache.http" level="warn" />
+	<logger name="com.netflix" level="warn" />
+	<logger name="org.hibernate.validator.internal" level="warn" />
+	<logger name="org.apache.ibatis.logging" level="warn" />
+	<logger name="org.mybatis.spring" level="warn" />
+	<logger name="com.alibaba.druid" level="warn" />
+	<logger name="org.hibernate.hql.internal" level="warn" />
+	<logger name="org.hibernate.jpa" level="warn" />
+	<logger name="org.hibernate.engine.jdbc.spi" level="warn" />
+	<logger name="io.netty" level="info" />
+	<logger name="io.lettuce.core" level="info" />
+	<logger name="org.jxls.area.XlsArea" level="info" />
+	<logger name="org.apache.commons.jexl2" level="error" />
+	<logger name="com.tzx.blog" level="info" />
+
+    <!-- 输出日志 -->
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="RFA" />
+	</root>
+</configuration>    
