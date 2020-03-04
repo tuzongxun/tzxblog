@@ -9,6 +9,19 @@ develop：开发主分支
 ### tags:
 v1.0：初始博客部分简单可用版本，前台页面使用thymeleaf模板，相关技术说明可参考tag下的readme。
 
+### 主要技术和版本说明
+>JDK: 1.8 <br/>
+springboot 2.0.7 <br/>
+mysql 5.6.35 <br/>
+mybatisplus 3.0.3 <br/>
+vue-cli 4.1.2 <br/>
+axios: 0.19.2 <br/>
+core-js: 3.4.4 <br/>
+vant: 2.5.3 <br/>
+vent: 0.1.0 <br/>
+vue: 2.6.10 <br/>
+vue-router: 3.1.3
+
 ## 参考文档
 ### 个人博客
 [tzxblog博客系统-需求及立项说明](https://blog.tzxcode.cn/2020/01/30/tzxblog2/)<br/>
