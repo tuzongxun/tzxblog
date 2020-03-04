@@ -8,7 +8,7 @@
 				<BlogLeft></BlogLeft>
 			</div>
 			<div class="blogContent">
-				
+				<BlogContent></BlogContent>
 			</div>
 			<div class="blogRight">
 				<BlogRight></BlogRight>
@@ -29,6 +29,7 @@
 	import Msg from "../components/msg.js"
 	import TopNav from "../components/TopNav.vue"
 	import BlogLeft from "../components/BlogLeft.vue"
+	import BlogContent from "../components/BlogContent.vue"
 	import BlogRight from "../components/BlogRight.vue"
 	export default{
 		data(){
@@ -45,7 +46,8 @@
 		components:{
 			TopNav,
 			BlogLeft,
-			BlogRight
+			BlogRight,
+			BlogContent
 		}
 	}
 </script>

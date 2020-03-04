@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tzx.blog.dao.BlogCategoryDao;
+import com.tzx.blog.dao.BlogInfoDao;
+import com.tzx.blog.entity.BlogInfo;
 import com.tzx.blog.entity.CategoryInfo;
 import com.tzx.blog.enums.ResponseEnum;
 import com.tzx.blog.vo.TzxResVO;
@@ -25,6 +27,8 @@ import lombok.extern.slf4j.Slf4j;
 public class BlogService {
 	@Autowired
 	private BlogCategoryDao categoryDao;
+	@Autowired
+	private BlogInfoDao blogInfoDao;
 
 	/**
 	 * 博客分类查询
@@ -50,4 +54,18 @@ public class BlogService {
 		log.info("博客分类查询响应结果：{}", resVO);
 		return resVO;
 	}
+
+	public TzxResVO<List<BlogInfo>> findBlogList(String requestId, String cateId) {
+		TzxResVO<List<BlogInfo>> resVO = new TzxResVO<>();
+		List<BlogInfo> blogList = blogInfoDao.findBlogListByOtherId(null, cateId);
+		System.out.println(blogList);
+
+		resVO.setCode(ResponseEnum.E000000.getCode());
+		resVO.setMsg(ResponseEnum.E000000.getMsg());
+		resVO.setRequestId(requestId);
+		resVO.setData(blogList);
+
+		return resVO;
+	}
+
 }

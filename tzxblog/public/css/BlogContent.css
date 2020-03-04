@@ -1,0 +1,16 @@
+.blog-content li{
+	/*margin-bottom: 2px;*/
+	text-align: left;
+}
+.blog{
+	text-align: left;
+	padding-left: 10px;
+}
+.blogDetail{
+	font-family: YouYuan;
+	margin-top: 10px;
+}
+.blogDesc{
+	margin-top: 10px;
+	color: grey;
+}

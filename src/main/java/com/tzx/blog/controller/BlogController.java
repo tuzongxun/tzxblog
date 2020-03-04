@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tzx.blog.entity.BlogInfo;
 import com.tzx.blog.entity.CategoryInfo;
 import com.tzx.blog.service.BlogService;
 import com.tzx.blog.vo.TzxResVO;
@@ -44,7 +45,6 @@ public class BlogController {
 	 * @param userId
 	 * @return
 	 */
-	@CrossOrigin(value = "http://localhost:8088")
 	@GetMapping("/category-list")
 	public TzxResVO<List<CategoryInfo>> findCategories(@RequestHeader(required = false) String timestamp,
 			@RequestHeader(required = false) String sign, String queryType,
@@ -53,6 +53,14 @@ public class BlogController {
 		log.info("【博客分类查询请求】，入参：timestamp={},sign={},queryType={},userId={},请求id：{}", timestamp, sign, queryType,
 				userId, requestId);
 		return blogService.findCategories(requestId, timestamp, sign, queryType, userId);
+	}
+
+	@GetMapping("/blog-list")
+	public TzxResVO<List<BlogInfo>> findBlogList(@RequestHeader(required = false) String timestamp,
+			@RequestHeader(required = false) String sign, String cateId) {
+		String requestId = UUID.randomUUID().toString();
+		log.info("【博客列表查询请求】，入参：timestamp={},sign={},cateId={},请求id：{}", timestamp, sign, cateId, requestId);
+		return blogService.findBlogList(requestId, cateId);
 	}
 
 }

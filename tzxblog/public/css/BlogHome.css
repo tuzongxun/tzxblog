@@ -2,35 +2,33 @@
 	margin: 0;
 	padding: 0;
 }
-.body{
-	background: #F5F5F5;
+body{
+ 	background-color: #F5F5F5;
 }
 .main{
+	width: 100%;
+}
+.blogMain{
 	background: grey;
+	width: 100%;
+	height: auto;
 }
 .blogLeft{
 	float: left;
-	width: 100px;
-	text-align: left;
-	padding-left: 10px;
+	width: 8%;
+	text-align: center;
+	margin-top: 1%;
+	margin-left: 3%;
+	/*padding-left: 10px;*/
 }
-.blogLeft li{
-	list-style: none;
-	height: 50px;
-	line-height: 40px;
-	/*margin-bottom: 5px;*/
-	background-color: #F5F5F5;
-	cursor: pointer;
-}
-.chooseli{
+.blogContent{
+	float: left;
+	width: 62%;
 	background-color: white;
+	margin: 1%;
 }
 .blogRight{
-	float:right;
-	width:300px;
-}
-.blogMain{
-	background: green;
-	width:100%;
-	height: auto;
+	float:left;
+	width:20%;
+	margin-top: 1%;
 }
