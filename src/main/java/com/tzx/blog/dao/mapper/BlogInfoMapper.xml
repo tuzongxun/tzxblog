@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tzx.blog.dao.BlogInfoDao">
+	<resultMap id="blogResultMap"
+		type="com.tzx.blog.entity.BlogInfo">
+		<result column="id" jdbcType="VARCHAR" property="id" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="desc" jdbcType="VARCHAR" property="desc" />
+		<result column="content" jdbcType="VARCHAR" property="content" />
+		<result column="type" jdbcType="VARCHAR" property="type" />
+		<result column="cate_id" jdbcType="VARCHAR" property="cateId" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<association property="userInfo" javaType="com.tzx.blog.entity.UserInfo">
+            <result property="id" jdbcType="VARCHAR" column="id"/>
+            <result property="name" jdbcType="VARCHAR" column="name"/>
+            <result property="img" jdbcType="VARCHAR" column="img"/>
+        </association>
+	</resultMap>
+    <select id="findBlogListByOtherId"  resultMap="blogResultMap" parameterType="String">
+      SELECT b.id,b.title,b.desc,b.type,u.id,u.name,u.img,b.cate_id,b.create_time,b.update_time
+      FROM bloginfo b ,userinfo u
+      where b.user_id=u.id
+      <if test="userId != '' and userId != null">
+      	and user_id = #{userId}
+      </if>
+      <if test="cateId != '' and cateId != null">
+      	and cate_id = #{cateId}
+      </if>
+    </select>
+
+</mapper>

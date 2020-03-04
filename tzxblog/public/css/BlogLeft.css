@@ -1,0 +1,17 @@
+.blog-left{
+	width: 100%;
+}
+.blog-left li{
+	list-style: none;
+	height: 50px;
+	line-height: 40px;
+	/*margin-bottom: 5px;*/
+	background-color: white;
+	cursor: pointer;
+}
+.chooseGreen{
+	color: green;
+}
+.chooseBlue{
+	background-color: red;
+}

@@ -5,18 +5,27 @@ import BlogHome from '../views/BlogHome.vue'
 import { Tab, Tabs } from 'vant';
 import { Sidebar, SidebarItem } from 'vant';
 import { Icon } from 'vant';
+import { Panel } from 'vant';
+import { Button } from 'vant';
+import { Divider } from 'vant';
+import { Col, Row } from 'vant';
+import { Pagination } from 'vant';
+import { Image } from 'vant';
 
+Vue.use(Image);
+Vue.use(Pagination);
+Vue.use(Col);
+Vue.use(Row);
+Vue.use(Divider);
+Vue.use(Button);
+Vue.use(Panel);
 Vue.use(Icon);
-
 Vue.use(Sidebar);
 Vue.use(SidebarItem);
-
 Vue.use(Tab);
 Vue.use(Tabs);
 
-
 Vue.use(VueRouter)
-
 
 const routes = [
   {

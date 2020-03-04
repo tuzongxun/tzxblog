@@ -1,10 +1,12 @@
-.blog-right .tuijian{
+.tuijian{
 	text-align:left;
+	margin-bottom: 10px;
+	background-color: white;
+	padding: 10px;
 }
-.tuijian .right-tuijian{
-	margin-left: 20px;
-	text-align:left;
+.tuijian li{
+	margin-top: 8px;
 }
-.blog-right{
-	background-color: #F5F5F5;
+.tuijian-title{
+	margin-bottom: 15px;
 }
