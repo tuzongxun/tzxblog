@@ -1,6 +1,7 @@
 <template>
+	<!--首页左侧分类列表-->
 	<div class="blog-left">
-		<van-sidebar v-model="activeKey" @change="onChange">
+		<van-sidebar class="cateList" v-model="activeKey" @change="onChange">
 		  	<van-sidebar-item v-for="cate in list" :title="cate.name" @click="choose(cate.id)">
 		  	<van-icon name="wap-home" /></van-sidebar-item>
 		</van-sidebar>
@@ -22,7 +23,6 @@
 		  	// 	_this.list=res.data;
 		  	// });
 		  	this.$http.get("http://localhost:8089/tzxblog/blog/category-list").then(function(res){
-		  		console.log(res);
 		  		_this.list=res.data.data;
 		  	});
 		    return {
@@ -36,10 +36,7 @@
 		      // Notify({ type: 'primary', message: index });
 		    },
 		    choose:function(cateId){
-		    	console.log(cateId);
-		    	Msg.$emit("cateId",cateId);
-		    	this.i=1;
-		    	this.class="chooseGreen";
+		    	Msg.$emit("cateId",cateId,1);
 		    }
 		  }
 	}

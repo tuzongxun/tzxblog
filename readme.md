@@ -11,10 +11,10 @@ v1.0：初始博客部分简单可用版本，前台页面使用thymeleaf模板�
 
 ### 主要技术和版本说明
 >JDK: 1.8 <br/>
-springboot 2.0.7 <br/>
-mysql 5.6.35 <br/>
-mybatisplus 3.0.3 <br/>
-vue-cli 4.1.2 <br/>
+springboot: 2.0.7 <br/>
+mysql: 5.6.35 <br/>
+mybatisplus: 3.0.3 <br/>
+vue-cli: 4.1.2 <br/>
 axios: 0.19.2 <br/>
 core-js: 3.4.4 <br/>
 vant: 2.5.3 <br/>
@@ -29,6 +29,7 @@ vue-router: 3.1.3
 [vue+element-ui搭建纯前台项目记录](https://blog.tzxcode.cn/2019/01/29/front1/)<br/>
 [vue项目搭建问题记录](https://blog.tzxcode.cn/2020/01/28/vue1/)<br/>
 [tzxblog博客系统-接口文档](https://blog.tzxcode.cn/2020/02/02/tzxblog4/)<br/>
+[tzxblog博客系统-vue前端项目搭建和要点记录](https://blog.tzxcode.cn/2020/03/01/tzxblog5/)<br/>
 
 ### CSDN博客
 [tzxblog博客系统-需求及立项说明](https://tuzongxun.blog.csdn.net/article/details/104116688)<br/>

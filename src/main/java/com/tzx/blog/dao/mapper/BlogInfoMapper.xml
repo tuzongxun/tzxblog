@@ -16,17 +16,47 @@
             <result property="name" jdbcType="VARCHAR" column="name"/>
             <result property="img" jdbcType="VARCHAR" column="img"/>
         </association>
+        <association property="blogDetailInfo" javaType="com.tzx.blog.entity.BlogDetailInfo">
+            <result property="id" jdbcType="VARCHAR" column="id"/>
+            <result property="blogId" jdbcType="VARCHAR" column="blog_id"/>
+            <result property="fabulousCount" jdbcType="VARCHAR" column="fabulous_count"/>
+            <result property="readCount" jdbcType="VARCHAR" column="read_count"/>
+            <result property="commentCount" jdbcType="VARCHAR" column="comment_count"/>
+            <result property="forwardCount" jdbcType="VARCHAR" column="forward_count"/>
+            <result property="cateType" jdbcType="VARCHAR" column="cate_type"/>
+            <result property="power" jdbcType="VARCHAR" column="power"/>
+            <result property="blogType" jdbcType="VARCHAR" column="blog_type"/>
+        </association>
 	</resultMap>
-    <select id="findBlogListByOtherId"  resultMap="blogResultMap" parameterType="String">
-      SELECT b.id,b.title,b.desc,b.type,u.id,u.name,u.img,b.cate_id,b.create_time,b.update_time
-      FROM bloginfo b ,userinfo u
-      where b.user_id=u.id
+    <select id="findBlogListByOtherId"  resultMap="blogResultMap" >
+      SELECT b.id,b.title,b.desc,b.type,u.id,u.name,u.img,d.fabulous_count,d.read_count,
+      d.comment_count,d.forward_count,d.cate_type,d.power,d.blog_type,
+      b.cate_id,b.create_time,b.update_time
+      FROM bloginfo b ,userinfo u,blog_detail d
+      where b.user_id=u.id and d.blog_id=b.id
       <if test="userId != '' and userId != null">
       	and user_id = #{userId}
       </if>
       <if test="cateId != '' and cateId != null">
       	and cate_id = #{cateId}
       </if>
+      <if test="cateType != '' and cateType != null">
+        and cate_type = #{cateType}
+      </if>
+      limit #{startPage},#{pageSize}
+    </select>
+    
+    <select id="count"  resultType="Integer" >
+      SELECT count(id)
+      FROM bloginfo
+      <where>
+	      <if test="userId != '' and userId != null">
+	      	and user_id = #{userId}
+	      </if>
+	      <if test="cateId != '' and cateId != null">
+	      	and cate_id = #{cateId}
+	      </if>
+      </where>
     </select>
 
 </mapper>
