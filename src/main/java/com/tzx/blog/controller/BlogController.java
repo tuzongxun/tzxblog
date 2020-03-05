@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tzx.blog.entity.BlogInfo;
 import com.tzx.blog.entity.CategoryInfo;
 import com.tzx.blog.service.BlogService;
+import com.tzx.blog.vo.PageInfo;
 import com.tzx.blog.vo.TzxResVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -55,12 +56,26 @@ public class BlogController {
 		return blogService.findCategories(requestId, timestamp, sign, queryType, userId);
 	}
 
+	/**
+	 * 博客列表分页查询 queryType String Y
+	 * index:首页；user:用户；recom:推荐；hot:活动；file:归档；notice：公告 pageIndex Long N 页码，默认1
+	 * pagSize Long N 页数，默认10 userId
+	 * 
+	 * @auth 涂宗勋
+	 * @param timestamp
+	 * @param sign
+	 * @param cateId
+	 * @return
+	 */
 	@GetMapping("/blog-list")
-	public TzxResVO<List<BlogInfo>> findBlogList(@RequestHeader(required = false) String timestamp,
-			@RequestHeader(required = false) String sign, String cateId) {
+	public TzxResVO<PageInfo<BlogInfo>> findBlogList(@RequestHeader(required = false) String timestamp,
+			@RequestHeader(required = false) String sign, String queryType,
+			@RequestParam(required = false) Long pageIndex, @RequestParam(required = false) Long pageSize,
+			@RequestParam(required = false) String userId, @RequestParam(required = false) String cateId) {
 		String requestId = UUID.randomUUID().toString();
-		log.info("【博客列表查询请求】，入参：timestamp={},sign={},cateId={},请求id：{}", timestamp, sign, cateId, requestId);
-		return blogService.findBlogList(requestId, cateId);
+		log.info("【博客列表查询请求】，入参：timestamp={},sign={},queryType={},pageIndex={},pageSize={},userId={},cateId={},请求id：{}",
+				timestamp, sign, queryType, pageIndex, pageSize, userId, cateId, requestId);
+		return blogService.findBlogList(timestamp, sign, queryType, pageIndex, pageSize, userId, cateId, requestId);
 	}
 
 }

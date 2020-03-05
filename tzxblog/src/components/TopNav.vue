@@ -1,7 +1,8 @@
 <template>
+	<!--首页顶部导航-->
 	<div class="topNav">
 		<van-tabs background="white" title-active-color="green" v-model="active" @click="checkType" swipe-threshold="8">
-		  <van-tab title="LOGO">LOGO</van-tab>
+		  <van-tab title="LOGO"></van-tab>
 		  <van-tab title="首页" type="1">
 		  	
 		  </van-tab>

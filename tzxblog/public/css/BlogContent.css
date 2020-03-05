@@ -1,5 +1,4 @@
 .blog-content li{
-	/*margin-bottom: 2px;*/
 	text-align: left;
 }
 .blog{
@@ -8,9 +7,13 @@
 }
 .blogDetail{
 	font-family: YouYuan;
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 }
 .blogDesc{
 	margin-top: 10px;
 	color: grey;
+}
+.blog-detail{
+	text-align: right;
+	padding-right: 10px;
 }

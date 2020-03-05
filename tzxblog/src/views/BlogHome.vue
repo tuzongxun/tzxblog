@@ -1,19 +1,26 @@
 <template>
+	<!--首页-->
 	<div class="main">
+		<!--顶部导航-->
 		<div class="topNav">
 			<TopNav></TopNav>
 		</div>
-		<div v-if="type==1" class="blogMain">
+		<!--博客内容区域-->
+		<div v-if="type==1 || type==0" class="blogMain">
+			<!--博客内容区左侧分类列表-->
 			<div class="blogLeft">
 				<BlogLeft></BlogLeft>
 			</div>
+			<!--博客主要内容区域-->
 			<div class="blogContent">
 				<BlogContent></BlogContent>
 			</div>
+			<!--首页右侧信息栏-->
 			<div class="blogRight">
 				<BlogRight></BlogRight>
 			</div>
 		</div>
+		<!--登录区域-->
 		<div v-else-if="type==2" class="loginPage">
 			<div class="loginLeft">
 				<!-- <BlogLeft></BlogLeft> -->

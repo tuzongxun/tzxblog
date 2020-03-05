@@ -3,13 +3,16 @@ package com.tzx.blog.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.tzx.blog.dao.BlogCategoryDao;
 import com.tzx.blog.dao.BlogInfoDao;
 import com.tzx.blog.entity.BlogInfo;
 import com.tzx.blog.entity.CategoryInfo;
+import com.tzx.blog.entity.UserInfo;
 import com.tzx.blog.enums.ResponseEnum;
+import com.tzx.blog.vo.PageInfo;
 import com.tzx.blog.vo.TzxResVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +32,10 @@ public class BlogService {
 	private BlogCategoryDao categoryDao;
 	@Autowired
 	private BlogInfoDao blogInfoDao;
+	@Value("${imgs.host}")
+	private String host;
+	@Value("${imgs.port}")
+	private String port;
 
 	/**
 	 * 博客分类查询
@@ -55,16 +62,43 @@ public class BlogService {
 		return resVO;
 	}
 
-	public TzxResVO<List<BlogInfo>> findBlogList(String requestId, String cateId) {
-		TzxResVO<List<BlogInfo>> resVO = new TzxResVO<>();
-		List<BlogInfo> blogList = blogInfoDao.findBlogListByOtherId(null, cateId);
-		System.out.println(blogList);
+	public TzxResVO<PageInfo<BlogInfo>> findBlogList(String timestamp, String sign, String queryType, Long pageIndex,
+			Long pageSize, String userId, String cateId, String requestId) {
+		TzxResVO<PageInfo<BlogInfo>> resVO = new TzxResVO<>();
+		PageInfo<BlogInfo> pageInfo = new PageInfo<>();
+
+		if (pageIndex == null || pageIndex == 0) {
+			pageIndex = 1L;
+		}
+		if (pageSize == null || pageSize == 0) {
+			pageSize = 5L;
+		}
+		long startPage = (pageIndex - 1) * pageSize;
+
+		int totalCount = blogInfoDao.count(userId, cateId);
+
+		List<BlogInfo> blogList = blogInfoDao.findBlogListByOtherId(null, cateId, startPage, pageSize, queryType);
+		for (BlogInfo blog : blogList) {
+			UserInfo userInfo = blog.getUserInfo();
+			StringBuilder stringBuilder = new StringBuilder("http://");
+			stringBuilder.append(host).append(":").append(port);
+			userInfo.setImg(stringBuilder.append(userInfo.getImg()).toString());
+		}
+
+		long pageCount = totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
+
+		pageInfo.setPageCount(new Long(pageCount));
+
+		pageInfo.setPageIndex(pageIndex);
+		pageInfo.setPageSize(new Long(blogList.size()));
+		pageInfo.setPageData(blogList);
+		pageInfo.setTotalCount(new Long(totalCount));
 
 		resVO.setCode(ResponseEnum.E000000.getCode());
 		resVO.setMsg(ResponseEnum.E000000.getMsg());
 		resVO.setRequestId(requestId);
-		resVO.setData(blogList);
-
+		resVO.setData(pageInfo);
+		log.info("博客列表查询响应结果：{}", resVO);
 		return resVO;
 	}
 
