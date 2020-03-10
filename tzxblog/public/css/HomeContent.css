@@ -1,19 +1,19 @@
-.blog-content li{
+.home-content li{
 	text-align: left;
 }
-.blog{
+.home{
 	text-align: left;
 	padding-left: 10px;
 }
-.blogDetail{
+.homeDetail{
 	font-family: YouYuan;
-	/*margin-top: 10px;*/
+	margin-top: 10px;
 }
-.blogDesc{
+.homeDesc{
 	margin-top: 10px;
 	color: grey;
 }
-.blog-detail{
+.home-detail{
 	text-align: right;
 	padding-right: 10px;
 }

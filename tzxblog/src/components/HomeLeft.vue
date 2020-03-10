@@ -1,6 +1,6 @@
 <template>
 	<!--首页左侧分类列表-->
-	<div class="blog-left">
+	<div class="home-left">
 		<van-sidebar class="cateList" v-model="activeKey" @change="onChange">
 		  	<van-sidebar-item v-for="cate in list" :title="cate.name" @click="choose(cate.id)">
 		  	<van-icon name="wap-home" /></van-sidebar-item>
@@ -11,7 +11,7 @@
 	</div>
 </template>
 <style type="text/css">
-	@import "../../public/css/BlogLeft.css"
+	@import "../../public/css/HomeLeft.css"
 </style>
 <script type="text/javascript">
 	import { Notify } from 'vant';

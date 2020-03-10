@@ -1,15 +1,15 @@
 <template>
 	<!--博客主要内容区域-->
-	<div calss="blog-content">
+	<div calss="home-content">
 		<ul>
 			<li v-for="blog in blogList" style="margin-bottom:2px;">
-				<div class="blog">
+				<div class="home">
 					<H2>{{blog.title}}</H2>
-					<p class="blogDesc">{{blog.desc}}</p>
-					<van-row class="blogDetail">
+					<p class="homeDesc">{{blog.desc}}</p>
+					<van-row class="homeDetail">
 					  <van-col span="10"><van-image round width="25" height="25" :src="blog.userInfo.img"/>{{blog.userInfo.name}}</van-col>
 					  <van-col span="2"></van-col>
-					  <van-col span="12" class="blog-detail">
+					  <van-col span="12" class="home-detail">
 					  	 <van-icon name="good-job" />{{blog.blogDetailInfo.fabulousCount}}
 					  	 <van-icon name="eye" />{{blog.blogDetailInfo.readCount}}
 					  	 <van-icon name="more" />{{blog.blogDetailInfo.commentCount}}
@@ -31,7 +31,7 @@
 	</div>
 </template>
 <style type="text/css">
-	@import "../../public/css/BlogContent.css"
+	@import "../../public/css/HomeContent.css"
 </style>
 <script type="text/javascript">
 	import Msg from './msg.js';

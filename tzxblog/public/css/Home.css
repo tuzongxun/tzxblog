@@ -8,12 +8,12 @@ body{
 .main{
 	width: 100%;
 }
-.blogMain{
+.homeMain{
 	background: grey;
 	width: 100%;
 	height: auto;
 }
-.blogLeft{
+.homeLeft{
 	float: left;
 	width: 8%;
 	text-align: center;
@@ -21,13 +21,13 @@ body{
 	margin-left: 3%;
 	/*padding-left: 10px;*/
 }
-.blogContent{
+.homeContent{
 	float: left;
 	width: 62%;
 	background-color: white;
 	margin: 1%;
 }
-.blogRight{
+.homeRight{
 	float:left;
 	width:20%;
 	margin-top: 1%;
