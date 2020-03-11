@@ -4,8 +4,9 @@
 		<ul>
 			<li v-for="blog in blogList" style="margin-bottom:2px;">
 				<div class="home">
-					<H2>{{blog.title}}</H2>
+					<H2><a href="#" @click="toBlog(blog.id)">{{blog.title}}</a></H2>
 					<p class="homeDesc">{{blog.desc}}</p>
+					<article v-html="value" ></article>
 					<van-row class="homeDetail">
 					  <van-col span="10"><van-image round width="25" height="25" :src="blog.userInfo.img"/>{{blog.userInfo.name}}</van-col>
 					  <van-col span="2"></van-col>
@@ -55,7 +56,12 @@
 				blogList:[],
 				currentPage: currentPage,
 				totalItem: totalItem,
-				perPage: pageSize
+				perPage: pageSize,
+				value: `<blockquote>
+						<p>你好</p>
+					</blockquote>
+					<p><code>java</code></p>`,
+            	defaultData: "preview"
 			}
 		},
 		mounted(){
@@ -87,6 +93,9 @@
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
+			},
+			toBlog(id){
+				console.log("blogId:"+id);
 			}
 		}
 	}

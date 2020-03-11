@@ -11,7 +11,10 @@ import { Divider } from 'vant';
 import { Col, Row } from 'vant';
 import { Pagination } from 'vant';
 import { Image } from 'vant';
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
+Vue.use(mavonEditor);
 Vue.use(Image);
 Vue.use(Pagination);
 Vue.use(Col);
