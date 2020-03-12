@@ -1,93 +1,47 @@
 <template>
-	<!--博客主要内容区域-->
-	<div calss="blog-content">
-		<ul>
-			<li v-for="blog in blogList" style="margin-bottom:2px;">
-				<div class="blog">
-					<H2>{{blog.title}}</H2>
-					<p class="blogDesc">{{blog.desc}}</p>
-					<van-row class="blogDetail">
-					  <van-col span="10"><van-image round width="25" height="25" :src="blog.userInfo.img"/>{{blog.userInfo.name}}</van-col>
-					  <van-col span="2"></van-col>
-					  <van-col span="12" class="blog-detail">
-					  	 <van-icon name="good-job" />{{blog.blogDetailInfo.fabulousCount}}
-					  	 <van-icon name="eye" />{{blog.blogDetailInfo.readCount}}
-					  	 <van-icon name="more" />{{blog.blogDetailInfo.commentCount}}
-					  	 <van-icon name="share" />{{blog.blogDetailInfo.forwardCount}}
-					  </van-col>
-					</van-row>
-				</div>
-				<van-divider />
-			</li>
-		</ul>
-		<van-pagination v-if="blogList.length>0"
-		  v-model="currentPage" 
-		  :total-items="totalItem" 
-		  :show-page-size="5" 
-		  :items-per-page="pageSize"
-		  @change="choosePage"
-		  force-ellipses
-		/>
+	<div>
+		<article v-html="value" ></article>
 	</div>
 </template>
-<style type="text/css">
-	@import "../../public/css/BlogContent.css"
-</style>
 <script type="text/javascript">
-	import Msg from './msg.js';
-	export default{
-		data(){
-			var cateId=2;
-			var currentPage=1;
-			var totalItem=0;
-			var pageSize=3;
-			var _this=this;
-			_this.pageSize=pageSize;
-			this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":cateId,"pageIndex":currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.pageSize=res.data.data.pageSize;
-					_this.totalItem=res.data.data.totalCount;
+	import Msg from "../components/msg.js"
+	export default {
+    data() {
+        return {//value的值是经过markdown解析后的文本，可使用`@change="changeData"`在控制台打印显示
+            value: `<blockquote>
+						<p>你好</p>
+					</blockquote>
+					<p><code>java</code></p>`,
+            defaultData: "preview"
+        };
+    },
+    methods:{
+			getBlog:function(blogId){
+				var _this=this;
+				console.log("hbbbbb:"+blogId);
+				this.$http.get("http://localhost:8089/tzxblog/blog/blog-detail",{params:{"blogId":blogId}}).then(function(res){
+					console.log(res.data);
+					_this.blogInfo=res.data.backData;
+					_this.value=_this.blogInfo.content;
+					console.log("a-bb:"+_this.blogInfo);
+					
 				}).catch(function(error){
-		  			window.alert("系统异常,请稍后再试");
+					console.log(error);
+		  			console.log("系统异常,请稍后再试");
 		  		});
-			return {
-				blogList:[],
-				currentPage: currentPage,
-				totalItem: totalItem,
-				perPage: pageSize
 			}
+			/*compiledMarkdown:function (blogInfo) {
+        		//this.articleDetail.context数据
+        		return marked(blogInfo.content, { sanitize: true })
+       		}*/
 		},
 		mounted(){
 			var _this=this;
-			var pageSize=3;
-			_this.pageSize=pageSize;
-			Msg.$on("cateId",function(cateId,cuPage){
-				_this.cateId=cateId;
-				_this.currentPage=cuPage;
-				this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":cateId,"pageIndex":_this.currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.pageSize=res.data.data.pageSize;
-					_this.totalItem=res.data.data.totalCount;
-				}).catch(function(error){
-		  			window.alert("系统异常,请稍后再试");
-		  		});
+			Msg.$on("homeBlogId",function(homeBlogId,a){
+				_this.homeBlogId=homeBlogId;
+				console.log("博客详情");
+				_this.getBlog(homeBlogId);
 			});
-		},
-		methods:{
-			choosePage(){
-				var _this=this;
-				var pageSize=3;
-				_this.pageSize=pageSize;
-				this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":_this.cateId,"pageIndex":_this.currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.totalItem=res.data.data.totalCount;
-				}).catch(function(error){
-		  			window.alert("系统异常,请稍后再试");
-		  		});
-			}
 		}
-	}
+};
 </script>

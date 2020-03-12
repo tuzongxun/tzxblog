@@ -1,19 +1,11 @@
-.blog-left{
-	width: 100%;
-}
-.blog-left li{
-	list-style: none;
-	height: 50px;
-	line-height: 40px;
+.userDetail{
 	background-color: white;
-	cursor: pointer;
 }
-.chooseGreen{
-	color: green;
+.blogCate{
+	background-color: white;
+	margin-top: 3%;
 }
-.chooseBlue{
-	background-color: red;
-}
-.cateList{
-	width:100%;
+.blogFile{
+	background-color: white;
+	margin-top: 3%;
 }

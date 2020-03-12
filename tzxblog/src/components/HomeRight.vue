@@ -1,13 +1,13 @@
 <template>
 	<!--首页右侧信息栏-->
-	<div class="blog-right">
+	<div class="home-right">
 		<div class="tuijian">
 			<h3 class="tuijian-title">热门推荐</h3>
 			<van-divider />
 			<ul>
 				<li v-for="blog in recomList" style="margin-bottom:2px;">
-					<div class="blog">
-						<van-row class="blogDetail">
+					<div class="home">
+						<van-row class="homeDetail">
 							<van-col span="5"><van-image width="40" height="40" :src="blog.userInfo.img"/></van-col>
 							<van-col span="19">{{blog.title}}</van-col>
 						</van-row>
@@ -20,8 +20,8 @@
 			<van-divider />
 			<ul>
 				<li v-for="blog in hotList" style="margin-bottom:2px;">
-					<div class="blog">
-						<van-row class="blogDetail">
+					<div class="home">
+						<van-row class="homeDetail">
 							<van-col span="5"><van-image width="40" height="40" :src="blog.userInfo.img"/></van-col>
 							<van-col span="19">{{blog.title}}</van-col>
 						</van-row>
@@ -34,8 +34,8 @@
 			<van-divider />
 			<ul>
 				<li v-for="blog in noticeList" style="margin-bottom:2px;">
-					<div class="blog">
-						<van-row class="blogDetail">
+					<div class="home">
+						<van-row class="homeDetail">
 							<van-col span="5"><van-image width="40" height="40" :src="blog.userInfo.img"/></van-col>
 							<van-col span="19">{{blog.title}}</van-col>
 						</van-row>
@@ -46,7 +46,7 @@
 	</div>
 </template>
 <style type="text/css">
-	@import "../../public/css/BlogRight.css"
+	@import "../../public/css/HomeRight.css"
 </style>
 <script type="text/javascript">
 	export default{
@@ -55,17 +55,17 @@
 			var pageSize=5;
 			var _this=this;
 			this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"queryType":"recom","pageIndex":currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.recomList=res.data.data.pageData;
+					_this.recomList=res.data.backData.pageData;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
 		  	this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"queryType":"hot","pageIndex":currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.hotList=res.data.data.pageData;
+					_this.hotList=res.data.backData.pageData;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
 		  	this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"queryType":"notice","pageIndex":currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.noticeList=res.data.data.pageData;
+					_this.noticeList=res.data.backData.pageData;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});

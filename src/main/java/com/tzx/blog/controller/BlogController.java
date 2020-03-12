@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @Slf4j
-@CrossOrigin(value = "http://localhost:8088")
+//@CrossOrigin(value = "http://localhost:8088")
 @RequestMapping("/tzxblog/blog")
 public class BlogController {
 
@@ -46,6 +45,7 @@ public class BlogController {
 	 * @param userId
 	 * @return
 	 */
+//	@CrossOrigin(value = "http://localhost:8088")
 	@GetMapping("/category-list")
 	public TzxResVO<List<CategoryInfo>> findCategories(@RequestHeader(required = false) String timestamp,
 			@RequestHeader(required = false) String sign, String queryType,
@@ -76,6 +76,14 @@ public class BlogController {
 		log.info("【博客列表查询请求】，入参：timestamp={},sign={},queryType={},pageIndex={},pageSize={},userId={},cateId={},请求id：{}",
 				timestamp, sign, queryType, pageIndex, pageSize, userId, cateId, requestId);
 		return blogService.findBlogList(timestamp, sign, queryType, pageIndex, pageSize, userId, cateId, requestId);
+	}
+
+	@GetMapping("/blog-detail")
+	public TzxResVO<BlogInfo> findBlogDetail(@RequestHeader(required = false) String timestamp,
+			@RequestHeader(required = false) String sign, @RequestParam(required = false) String blogId) {
+		String requestId = UUID.randomUUID().toString();
+		log.info("【博客详情查询请求】，入参：timestamp={},sign={},blogId={},请求id:{}", timestamp, sign, blogId, requestId);
+		return blogService.findBlogDetail(timestamp, sign, blogId, requestId);
 	}
 
 }

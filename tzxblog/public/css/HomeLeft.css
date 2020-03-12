@@ -1,0 +1,19 @@
+.home-left{
+	width: 100%;
+}
+.home-left li{
+	list-style: none;
+	height: 50px;
+	line-height: 40px;
+	background-color: white;
+	cursor: pointer;
+}
+.chooseGreen{
+	color: green;
+}
+.chooseBlue{
+	background-color: red;
+}
+.cateList{
+	width:100%;
+}

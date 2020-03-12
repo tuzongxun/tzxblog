@@ -56,7 +56,7 @@ public class BlogService {
 		resVO.setCode(ResponseEnum.E000000.getCode());
 		resVO.setMsg(ResponseEnum.E000000.getMsg());
 		resVO.setRequestId(requestId);
-		resVO.setData(cateList);
+		resVO.setBackData(cateList);
 
 		log.info("博客分类查询响应结果：{}", resVO);
 		return resVO;
@@ -97,8 +97,24 @@ public class BlogService {
 		resVO.setCode(ResponseEnum.E000000.getCode());
 		resVO.setMsg(ResponseEnum.E000000.getMsg());
 		resVO.setRequestId(requestId);
-		resVO.setData(pageInfo);
+		resVO.setBackData(pageInfo);
 		log.info("博客列表查询响应结果：{}", resVO);
+		return resVO;
+	}
+
+	public TzxResVO<BlogInfo> findBlogDetail(String timestamp, String sign, String blogId, String requestId) {
+		TzxResVO<BlogInfo> resVO = new TzxResVO<>();
+
+		BlogInfo blogInfo = blogInfoDao.findBlogDetail(blogId);
+		UserInfo userInfo = blogInfo.getUserInfo();
+		StringBuilder stringBuilder = new StringBuilder("http://");
+		stringBuilder.append(host).append(":").append(port);
+		userInfo.setImg(stringBuilder.append(userInfo.getImg()).toString());
+
+		resVO.setCode(ResponseEnum.E000000.getCode());
+		resVO.setMsg(ResponseEnum.E000000.getMsg());
+		resVO.setRequestId(requestId);
+		resVO.setBackData(blogInfo);
 		return resVO;
 	}
 

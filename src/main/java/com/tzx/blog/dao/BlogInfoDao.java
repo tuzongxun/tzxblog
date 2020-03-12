@@ -13,4 +13,6 @@ public interface BlogInfoDao {
 			@Param("startPage") Long startPage, @Param("pageSize") Long pageSize, @Param("cateType") String cateType);
 
 	public int count(@Param("userId") String userId, @Param("cateId") String cateId);
+
+	public BlogInfo findBlogDetail(@Param("blogId") String blogId);
 }
