@@ -78,4 +78,12 @@ public class BlogController {
 		return blogService.findBlogList(timestamp, sign, queryType, pageIndex, pageSize, userId, cateId, requestId);
 	}
 
+	@GetMapping("/blog-detail")
+	public TzxResVO<BlogInfo> findBlogDetail(@RequestHeader(required = false) String timestamp,
+			@RequestHeader(required = false) String sign, @RequestParam(required = false) String blogId) {
+		String requestId = UUID.randomUUID().toString();
+		log.info("【博客详情查询请求】，入参：timestamp={},sign={},blogId={},请求id:{}", timestamp, sign, blogId, requestId);
+		return blogService.findBlogDetail(timestamp, sign, blogId, requestId);
+	}
+
 }

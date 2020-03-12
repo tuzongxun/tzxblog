@@ -1,0 +1,15 @@
+.blogMain{
+	background: grey;
+	width: 100%;
+	height: auto;
+}
+.blogContent{
+	float: left;
+	width: 98%;
+	background-color: white;
+	margin: 1%;
+	text-align: left;
+}
+.blogTitle{
+	margin-bottom: 10px;
+}

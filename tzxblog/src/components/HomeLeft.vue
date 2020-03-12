@@ -23,7 +23,7 @@
 		  	// 	_this.list=res.data;
 		  	// });
 		  	this.$http.get("http://localhost:8089/tzxblog/blog/category-list").then(function(res){
-		  		_this.list=res.data.data;
+		  		_this.list=res.data.backData;
 		  	});
 		    return {
 		      i: 0,

@@ -32,3 +32,17 @@ body{
 	width:20%;
 	margin-top: 1%;
 }
+.blogLeft{
+	float: left;
+    width: 20%;
+    text-align: center;
+	margin-top: 1%;
+	margin-left: 3%;
+}
+.blogMain{
+	float: left;
+	width: 72%;
+	background-color: white;
+	margin-top: 1%;
+	margin-left: 0.5%;
+}

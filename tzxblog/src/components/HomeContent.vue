@@ -6,7 +6,6 @@
 				<div class="home">
 					<H2><a href="#" @click="toBlog(blog.id)">{{blog.title}}</a></H2>
 					<p class="homeDesc">{{blog.desc}}</p>
-					<article v-html="value" ></article>
 					<van-row class="homeDetail">
 					  <van-col span="10"><van-image round width="25" height="25" :src="blog.userInfo.img"/>{{blog.userInfo.name}}</van-col>
 					  <van-col span="2"></van-col>
@@ -45,10 +44,10 @@
 			var _this=this;
 			_this.pageSize=pageSize;
 			this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":cateId,"pageIndex":currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.pageSize=res.data.data.pageSize;
-					_this.totalItem=res.data.data.totalCount;
+					_this.blogList=res.data.backData.pageData;
+					_this.currentPage=res.data.backData.pageIndex;
+					_this.pageSize=res.data.backData.pageSize;
+					_this.totalItem=res.data.backData.totalCount;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
@@ -72,10 +71,10 @@
 				_this.cateId=cateId;
 				_this.currentPage=cuPage;
 				this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":cateId,"pageIndex":_this.currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.pageSize=res.data.data.pageSize;
-					_this.totalItem=res.data.data.totalCount;
+					_this.blogList=res.data.backData.pageData;
+					_this.currentPage=res.data.backData.pageIndex;
+					_this.pageSize=res.data.backData.pageSize;
+					_this.totalItem=res.data.backData.totalCount;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
@@ -87,15 +86,15 @@
 				var pageSize=3;
 				_this.pageSize=pageSize;
 				this.$http.get("http://localhost:8089/tzxblog/blog/blog-list",{params:{"cateId":_this.cateId,"pageIndex":_this.currentPage,"pageSize":pageSize}}).then(function(res){
-					_this.blogList=res.data.data.pageData;
-					_this.currentPage=res.data.data.pageIndex;
-					_this.totalItem=res.data.data.totalCount;
+					_this.blogList=res.data.backData.pageData;
+					_this.currentPage=res.data.backData.pageIndex;
+					_this.totalItem=res.data.backData.totalCount;
 				}).catch(function(error){
 		  			window.alert("系统异常,请稍后再试");
 		  		});
 			},
-			toBlog(id){
-				console.log("blogId:"+id);
+			toBlog(homeBlogId){
+				Msg.$emit("homeBlogId",homeBlogId,1);
 			}
 		}
 	}

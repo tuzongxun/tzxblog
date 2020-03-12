@@ -30,5 +30,5 @@ public class TzxResVO<T> implements Serializable {
 	 * 请求id
 	 */
 	private String requestId;
-	private T data;
+	private T backData;
 }
