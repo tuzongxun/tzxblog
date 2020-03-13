@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.tzx.blog.dao.BlogCategoryDao;
 import com.tzx.blog.dao.BlogInfoDao;
 import com.tzx.blog.entity.BlogInfo;
-import com.tzx.blog.entity.CategoryInfo;
 import com.tzx.blog.entity.UserInfo;
 import com.tzx.blog.enums.ResponseEnum;
 import com.tzx.blog.vo.PageInfo;
@@ -28,39 +26,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class BlogService {
-	@Autowired
-	private BlogCategoryDao categoryDao;
+
 	@Autowired
 	private BlogInfoDao blogInfoDao;
 	@Value("${imgs.host}")
 	private String host;
 	@Value("${imgs.port}")
 	private String port;
-
-	/**
-	 * 博客分类查询
-	 * 
-	 * @auth 涂宗勋
-	 * @param timestamp
-	 * @param sign
-	 * @param queryType
-	 * @param userId
-	 * @return
-	 */
-	public TzxResVO<List<CategoryInfo>> findCategories(String requestId, String timestamp, String sign,
-			String queryType, String userId) {
-		TzxResVO<List<CategoryInfo>> resVO = new TzxResVO<>();
-		List<CategoryInfo> cateList = categoryDao.findCategories();
-		System.out.println(cateList);
-
-		resVO.setCode(ResponseEnum.E000000.getCode());
-		resVO.setMsg(ResponseEnum.E000000.getMsg());
-		resVO.setRequestId(requestId);
-		resVO.setBackData(cateList);
-
-		log.info("博客分类查询响应结果：{}", resVO);
-		return resVO;
-	}
 
 	public TzxResVO<PageInfo<BlogInfo>> findBlogList(String timestamp, String sign, String queryType, Long pageIndex,
 			Long pageSize, String userId, String cateId, String requestId) {

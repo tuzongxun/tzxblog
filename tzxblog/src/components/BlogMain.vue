@@ -60,7 +60,7 @@
 		},
 		mounted(){
 			var _this=this;
-			Msg.$on("homeBlogId",function(homeBlogId,a){
+			Msg.$on("homeBlogId",function(homeBlogId,a,userId){
 				_this.homeBlogId=homeBlogId;
 				console.log("博客详情");
 				_this.getBlog(homeBlogId);

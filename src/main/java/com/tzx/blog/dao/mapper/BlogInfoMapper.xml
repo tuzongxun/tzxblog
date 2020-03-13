@@ -12,8 +12,8 @@
 		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
 		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
 		<association property="userInfo" javaType="com.tzx.blog.entity.UserInfo">
-            <result property="id" jdbcType="VARCHAR" column="id"/>
-            <result property="name" jdbcType="VARCHAR" column="name"/>
+            <result property="id" jdbcType="VARCHAR" column="uid"/>
+            <result property="name" jdbcType="VARCHAR" column="uname"/>
             <result property="img" jdbcType="VARCHAR" column="img"/>
         </association>
         <association property="blogDetailInfo" javaType="com.tzx.blog.entity.BlogDetailInfo">
@@ -29,7 +29,7 @@
         </association>
 	</resultMap>
 	<select id="findBlogDetail"  resultMap="blogResultMap" >
-      SELECT b.id,b.title,b.content,b.desc,b.type,u.id,u.name,u.img,d.fabulous_count,d.read_count,
+      SELECT b.id,b.title,b.content,b.desc,b.type,u.id as uid,u.name as uname,u.img,d.fabulous_count,d.read_count,
       d.comment_count,d.forward_count,d.cate_type,d.power,d.blog_type,
       b.cate_id,b.create_time,b.update_time
       FROM bloginfo b ,userinfo u,blog_detail d
@@ -40,7 +40,7 @@
     </select>
     
     <select id="findBlogListByOtherId"  resultMap="blogResultMap" >
-      SELECT b.id,b.title,b.desc,b.type,u.id,u.name,u.img,d.fabulous_count,d.read_count,
+      SELECT b.id,b.title,b.desc,b.type,u.id as uid,u.name as uname,u.img,d.fabulous_count,d.read_count,
       d.comment_count,d.forward_count,d.cate_type,d.power,d.blog_type,
       b.cate_id,b.create_time,b.update_time
       FROM bloginfo b ,userinfo u,blog_detail d

@@ -3,3 +3,17 @@
 	height: 50px;
 	width: 100%;
 }
+.navLeft{
+	width: 40%;
+	float: left;
+}
+.navRight{
+	width: 60%;
+	float: right;
+}
+.userInfo{
+	padding: 10px;
+	padding-right: 50px;
+	text-align: right;
+	color: red;
+}

@@ -7,7 +7,7 @@
 				<li style="margin-bottom:2px;">
 					<div class="home">
 						<van-row class="homeDetail">
-							<van-col span="5"><van-image round radius="200px" width="100px" height="100px" :src="userInfo.img"/></van-col>
+							<van-col span="5" @click="toUserHome(userInfo.id)"><van-image round radius="50px" width="50px" height="50px" :src="userInfo.img"/></van-col>
 							<van-col span="19">{{userInfo.name}}</van-col>
 						</van-row>
 					</div>
@@ -34,14 +34,11 @@
 			<h3 >博客分类</h3>
 			<van-divider />
 			<ul>
-				<li v-for="cate in cateList" style="margin-bottom:2px;">
-					{{cate.name}}&nbsp;&nbsp;({{cate.count}})
-					<!-- <div class="home">
-						<van-row class="homeDetail">
-							<van-col span="5"><van-image width="40" height="40" :src="blog.userInfo.img"/></van-col>
-							<van-col span="19">{{blog.title}}</van-col>
-						</van-row>
-					</div> -->
+				<li v-for="cate in cateList" class="cateListLi">
+					<van-row class="cateList">
+							<van-col span="19" >{{cate.cateName}}</van-col>
+							<van-col span="5" class="cateLeft">{{cate.cateCount}}篇</van-col>
+					</van-row>
 				</li>
 			</ul>
 		</div>
@@ -49,14 +46,11 @@
 			<h3 >博客归档</h3>
 			<van-divider />
 			<ul>
-				<li v-for="file in fileList" style="margin-bottom:2px;">
-					{{file.name}}&nbsp;&nbsp;({{file.count}})
-					<!-- <div class="home">
-						<van-row class="homeDetail">
-							<van-col span="5"><van-image width="40" height="40" :src="blog.userInfo.img"/></van-col>
-							<van-col span="19">{{blog.title}}</van-col>
-						</van-row>
-					</div> -->
+				<li v-for="file in fileList" class="cateListLi">
+					<van-row class="cateList">
+							<van-col span="19" >{{file.cateName}}</van-col>
+							<van-col span="5" class="cateLeft">{{file.cateCount}}篇</van-col>
+					</van-row>
 				</li>
 			</ul>
 		</div>
@@ -66,62 +60,61 @@
 	@import "../../public/css/BlogLeft.css"
 </style>
 <script type="text/javascript">
+	import Msg from './msg.js';
 	export default{
 		data(){
 			return{
 				userInfo:{
-					img:"http://localhost:8089/static/t1.jpg",
-					name: "tuzongxun",
-					guanzhu: 1000,
-					fensi: 9999,
-					yuanchuang: 120,
-					zhuanzai: 23
 				},
 				cateList:[
-					{
-						name: "java",
-						count: 5
-					},
-					{
-						name: "数据库",
-						count: 51
-					},
-					{
-						name: "前端",
-						count: 15
-					},
-					{
-						name: "运维",
-						count: 11
-					},
-					{
-						name: "程序人生",
-						count: 8
-					}
 				],
 				fileList:[
-					{
-						name: "3月",
-						count: 2
-					},
-					{
-						name: "2月",
-						count: 8
-					},
-					{
-						name: "1月",
-						count: 24
-					},
-					{
-						name: "12月",
-						count: 12
-					},
-					{
-						name: "11月",
-						count: 5
-					}
 				]
 			}
-		}
+		},
+	methods:{
+			getUserInfo:function(userId){
+				var _this=this;
+				console.log("user:"+userId);
+				this.$http.get("http://localhost:8089/tzxblog/user/userinfo",{params:{"userId":userId}}).then(function(res){
+					_this.userInfo=res.data.backData;
+					console.log("user:"+_this.userInfo);
+				}).catch(function(error){
+					console.log(error);
+		  			console.log("系统异常,请稍后再试");
+		  		});
+			},
+			getCateList:function(userId){
+				var _this=this;
+				console.log("user:"+userId);
+				this.$http.get("http://localhost:8089/tzxblog/cate/user-cate-list",{params:{"userId":userId}}).then(function(res){
+					_this.cateList=res.data.backData;
+					console.log("cateList:"+_this.cateList);
+				}).catch(function(error){
+					console.log(error);
+		  			console.log("系统异常,请稍后再试");
+		  		});
+			},
+			getFileList:function(userId){
+				var _this=this;
+				console.log("user:"+userId);
+				this.$http.get("http://localhost:8089/tzxblog/cate/user-file-list",{params:{"userId":userId}}).then(function(res){
+					_this.fileList=res.data.backData;
+					console.log("fileList:"+_this.fileList);
+				}).catch(function(error){
+					console.log(error);
+		  			console.log("系统异常,请稍后再试");
+		  		});
+			}
+		},
+	mounted(){
+			var _this=this;
+			Msg.$on("homeBlogId",function(homeBlogId,a,userId){
+				_this.userId=userId;
+				_this.getUserInfo(userId);
+				_this.getCateList(userId);
+				_this.getFileList(userId);
+			});
 	}
+}
 </script>

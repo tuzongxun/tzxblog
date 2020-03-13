@@ -17,7 +17,6 @@
 				<div >
 					<HomeContent class="homeContent" v-show="contentShow"></HomeContent>
 					<BlogMain class="blogMain" v-show="blogShow"></BlogMain>
-					<!-- <BlogContent v-show="blogShow"></BlogContent> -->
 				</div>
 				<!--首页右侧信息栏-->
 				<div class="homeRight" v-if="rightShow">
@@ -33,7 +32,7 @@
 		<div v-else-if="type==2" class="loginPage">
 			<div class="loginLeft">
 				<!-- <BlogLeft></BlogLeft> -->
-				fdsfdsfsdsf
+				
 			</div>
 		</div>
 	</div>
@@ -49,7 +48,6 @@
 	import HomeRight from "../components/HomeRight.vue"
 	import BlogMain from "../components/BlogMain.vue"
 	import BlogLeft from "../components/BlogLeft.vue"
-	import BlogContent from "../components/BlogContent.vue"
 	export default{
 		data(){
 			return{
@@ -73,7 +71,7 @@
 				_this.blogLeftShow=false;
 				_this.homeLeftShow=true;
 			});
-			Msg.$on("homeBlogId",function(homeBlogId,homeCotentType){
+			Msg.$on("homeBlogId",function(homeBlogId,homeCotentType,userId){
 				_this.homeCotentType=homeCotentType;
 				_this.contentShow=false;
 				_this.blogShow=true;
@@ -88,8 +86,7 @@
 			HomeRight,
 			HomeContent,
 			BlogMain,
-			BlogLeft,
-			BlogContent
+			BlogLeft
 		}
 	}
 </script>
