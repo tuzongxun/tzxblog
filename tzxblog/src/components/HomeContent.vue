@@ -4,7 +4,7 @@
 		<ul>
 			<li v-for="blog in blogList" style="margin-bottom:2px;">
 				<div class="home">
-					<H2><a href="#" @click="toBlog(blog.id)">{{blog.title}}</a></H2>
+					<H2><a href="#" @click="toBlog(blog.id,blog.userInfo.id)">{{blog.title}}</a></H2>
 					<p class="homeDesc">{{blog.desc}}</p>
 					<van-row class="homeDetail">
 					  <van-col span="10"><van-image round width="25" height="25" :src="blog.userInfo.img"/>{{blog.userInfo.name}}</van-col>
@@ -93,8 +93,8 @@
 		  			window.alert("系统异常,请稍后再试");
 		  		});
 			},
-			toBlog(homeBlogId){
-				Msg.$emit("homeBlogId",homeBlogId,1);
+			toBlog(homeBlogId,userId){
+				Msg.$emit("homeBlogId",homeBlogId,1,userId);
 			}
 		}
 	}

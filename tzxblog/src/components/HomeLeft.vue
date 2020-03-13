@@ -22,7 +22,7 @@
 		  	// this.$http.get("json/homeCate.json").then(function(res){
 		  	// 	_this.list=res.data;
 		  	// });
-		  	this.$http.get("http://localhost:8089/tzxblog/blog/category-list").then(function(res){
+		  	this.$http.get("http://localhost:8089/tzxblog/cate/category-list").then(function(res){
 		  		_this.list=res.data.backData;
 		  	});
 		    return {

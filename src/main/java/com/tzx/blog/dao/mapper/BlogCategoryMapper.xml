@@ -10,8 +10,20 @@
 		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
 		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
 	</resultMap>
+	
     <select id="findCategories" resultMap="categoryResultMap">
       SELECT b.id,b.name,b.desc,b.order,b.create_time,b.update_time FROM blog_category b order by b.order desc
+    </select>
+    
+     <select id="findUserCates" resultType="com.tzx.blog.entity.UserCateInfo">
+      SELECT c.id as cateId,c.name as cateName,cb.cateCount FROM blog_category c,
+    (select b.cate_id as cateId,count(b.id) as cateCount from bloginfo b where b.user_id = #{userId} GROUP BY b.cate_id) cb
+    where cb.cateId = c.id
+    </select>
+    
+    <select id="findUserFiles" resultType="com.tzx.blog.entity.UserCateInfo">
+      select DATE_FORMAT(b.create_time,'%Y年%m月') as cateName,count(b.id) as cateCount 
+      from bloginfo b where b.user_id= #{userId} GROUP BY cateName order by cateName desc
     </select>
 
 </mapper>

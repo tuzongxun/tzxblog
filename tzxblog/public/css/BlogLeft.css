@@ -1,11 +1,23 @@
 .userDetail{
 	background-color: white;
+	padding: 10px;
+	text-align: left;
 }
 .blogCate{
 	background-color: white;
 	margin-top: 3%;
+	text-align: left;
+	padding: 10px;
 }
 .blogFile{
 	background-color: white;
 	margin-top: 3%;
+	text-align: left;
+	padding: 10px;
+}
+.cateLeft{
+	text-align: right;
+}
+.cateListLi{
+	padding: 5px;
 }

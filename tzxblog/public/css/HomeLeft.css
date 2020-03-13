@@ -3,8 +3,8 @@
 }
 .home-left li{
 	list-style: none;
-	height: 50px;
-	line-height: 40px;
+	height: 30px;
+	line-height: 30px;
 	background-color: white;
 	cursor: pointer;
 }
