@@ -17,3 +17,11 @@
 	text-align: right;
 	color: red;
 }
+.navRight-left{
+	float: left;
+	width: 45%;
+}
+.navRight-right{
+	float: left;
+	width: 15%;
+}

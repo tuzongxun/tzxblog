@@ -22,7 +22,12 @@
 			</van-tabs>
 		</div>
 		<div calss="navRight">
-			<p class="userInfo"><a href="" class="userInfo">tuzongxun</a></p>
+			<div class="navRight-left">
+				<van-notice-bar text="通知内容水电费来将SD卡费加快速度缴费流水防静电收费单据送京东方快结束了肯德基弗兰卡时代峻峰" left-icon="volume-o" />
+			</div>
+			<div class="navRight-right">
+				<p class="userInfo"><a href="" class="userInfo">tuzongxun</a></p>
+			</div>		
 		</div>
 		
 	</div>

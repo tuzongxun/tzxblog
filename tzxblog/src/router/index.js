@@ -11,7 +11,11 @@ import { Divider } from 'vant';
 import { Col, Row } from 'vant';
 import { Pagination } from 'vant';
 import { Image } from 'vant';
+import { Tag } from 'vant';
+import { NoticeBar } from 'vant';
 
+Vue.use(NoticeBar);
+Vue.use(Tag);
 Vue.use(Image);
 Vue.use(Pagination);
 Vue.use(Col);
