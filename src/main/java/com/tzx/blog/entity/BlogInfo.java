@@ -1,7 +1,6 @@
 package com.tzx.blog.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import lombok.Data;
 
@@ -19,7 +18,7 @@ public class BlogInfo implements Serializable {
 	private UserInfo userInfo;
 	private BlogDetailInfo blogDetailInfo;
 	private String cateId;
-	private Date createTime;
-	private Date updateTime;
+	private String createTime;
+	private String updateTime;
 
 }

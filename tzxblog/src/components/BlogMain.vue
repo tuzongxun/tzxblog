@@ -4,6 +4,18 @@
 		<div class="blogContent">
 			<!-- <HomeContent></HomeContent> -->
 			<div class="blogTitle"><h2>{{blogInfo.title}}</h2></div>
+			<div class="blogTitle">
+				<van-row class="cateList">
+					<van-col span="2" ><van-tag type="warning" size="large">{{blogInfo.type}}</van-tag></van-col>
+					<van-col span="7" >发布于&nbsp;{{blogInfo.createTime}}</van-col>
+					<van-col span="3" >阅读：{{blogInfo.blogDetailInfo.readCount}}</van-col>
+					<van-col span="3" >评论：{{blogInfo.blogDetailInfo.commentCount}}</van-col>
+					<van-col span="3" >转发：{{blogInfo.blogDetailInfo.forwardCount}}</van-col>
+					<van-col span="3" >点赞：{{blogInfo.blogDetailInfo.fabulousCount}}</van-col>
+					<van-col span="3" ></van-col>
+				</van-row>
+			</div>
+			</h2>
 			<!-- <hr/> -->
 			<!-- <article v-html="blogInfo.content" ></article> -->
 			 <!-- class="md"  -->
@@ -46,17 +58,13 @@
 				this.$http.get("http://localhost:8089/tzxblog/blog/blog-detail",{params:{"blogId":blogId}}).then(function(res){
 					console.log(res.data);
 					_this.blogInfo=res.data.backData;
-					console.log("a-bb:"+_this.blogInfo);
+					console.log("a-bb:"+JSON.stringify(_this.blogInfo));
 					
 				}).catch(function(error){
 					console.log(error);
 		  			console.log("系统异常,请稍后再试");
 		  		});
 			}
-			/*compiledMarkdown:function (blogInfo) {
-        		//this.articleDetail.context数据
-        		return marked(blogInfo.content, { sanitize: true })
-       		}*/
 		},
 		mounted(){
 			var _this=this;
