@@ -12,9 +12,18 @@
 		<result column="img" jdbcType="VARCHAR" property="img" />
 		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
 		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<association property="userDetailInfo" javaType="com.tzx.blog.entity.UserDetailInfo">
+            <result property="id" jdbcType="VARCHAR" column="udid"/>
+            <result property="followmeCount" jdbcType="INTEGER" column="followme_count"/>
+            <result property="mefollowCount" jdbcType="INTEGER" column="mefollow_count"/>
+            <result property="blogCount" jdbcType="INTEGER" column="blog_count"/>
+            <result property="rdBlogCount" jdbcType="INTEGER" column="rd_blog_count"/>
+        </association>
 	</resultMap>
     <select id="findUserById" resultMap="userResultMap" parameterType="String">
-      SELECT b.id,b.account,b.password,b.name,b.phone,b.email,b.img,b.create_time,b.update_time FROM userinfo b where b.id=#{id}
+      SELECT b.id,b.account,b.password,b.name,b.phone,b.email,b.img,b.create_time,b.update_time,
+      ud.id udid,ud.followme_count,ud.mefollow_count,ud.blog_count,ud.rd_blog_count 
+      FROM userinfo b,userdetail ud where b.udid = ud.id and b.id=#{id}
     </select>
 
 </mapper>

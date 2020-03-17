@@ -15,16 +15,16 @@
 				<li style="margin-bottom:2px;">
 					<div class="home">
 						<van-row class="homeDetail">
-							<van-col span="12">关注：{{userInfo.guanzhu}}</van-col>
-							<van-col span="12">粉丝：{{userInfo.fensi}}</van-col>
+							<van-col span="12">关注：{{userDetailInfo.mefollowCount}}</van-col>
+							<van-col span="12">粉丝：{{userDetailInfo.followmeCount}}</van-col>
 						</van-row>
 					</div>
 				</li>
 				<li style="margin-bottom:2px;">
 					<div class="home">
 						<van-row class="homeDetail">
-							<van-col span="12">转载：{{userInfo.zhuanzai}}</van-col>
-							<van-col span="12">原创：{{userInfo.yuanchuang}}</van-col>
+							<van-col span="12">转载：{{userDetailInfo.rdBlogCount}}</van-col>
+							<van-col span="12">原创：{{userDetailInfo.blogCount}}</van-col>
 						</van-row>
 					</div>
 				</li>
@@ -66,6 +66,9 @@
 			return{
 				userInfo:{
 				},
+				userDetailInfo:{
+
+				},
 				cateList:[
 				],
 				fileList:[
@@ -79,6 +82,7 @@
 				this.$http.get("http://localhost:8089/tzxblog/user/userinfo",{params:{"userId":userId}}).then(function(res){
 					_this.userInfo=res.data.backData;
 					console.log("user:"+_this.userInfo);
+					_this.userDetailInfo=_this.userInfo.userDetailInfo;
 				}).catch(function(error){
 					console.log(error);
 		  			console.log("系统异常,请稍后再试");

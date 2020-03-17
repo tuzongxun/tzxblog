@@ -17,5 +17,6 @@ public class UserInfo implements Serializable {
 	private String phone;
 	private String email;
 	private String img;
+	private UserDetailInfo userDetailInfo;
 
 }
