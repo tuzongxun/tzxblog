@@ -49,7 +49,7 @@ public class BlogService {
 
 		int totalCount = blogInfoDao.count(userId, cateId);
 
-		List<BlogInfo> blogList = blogInfoDao.findBlogListByOtherId(null, cateId, startPage, pageSize, queryType);
+		List<BlogInfo> blogList = blogInfoDao.findBlogListByOtherId(userId, cateId, startPage, pageSize, queryType);
 		for (BlogInfo blog : blogList) {
 			UserInfo userInfo = blog.getUserInfo();
 			StringBuilder stringBuilder = new StringBuilder("http://");

@@ -45,7 +45,7 @@ public class BlogController {
 	 */
 	@GetMapping("/blog-list")
 	public TzxResVO<PageInfo<BlogInfo>> findBlogList(@RequestHeader(required = false) String timestamp,
-			@RequestHeader(required = false) String sign, String queryType,
+			@RequestHeader(required = false) String sign, @RequestParam(required = false) String queryType,
 			@RequestParam(required = false) Long pageIndex, @RequestParam(required = false) Long pageSize,
 			@RequestParam(required = false) String userId, @RequestParam(required = false) String cateId) {
 		String requestId = UUID.randomUUID().toString();

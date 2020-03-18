@@ -8,7 +8,7 @@
 					<div class="home">
 						<van-row class="homeDetail">
 							<van-col span="5" @click="toUserHome(userInfo.id)"><van-image round radius="50px" width="50px" height="50px" :src="userInfo.img"/></van-col>
-							<van-col span="19">{{userInfo.name}}</van-col>
+							<van-col span="19" @click="toUserHome(userInfo.id)">{{userInfo.name}}</van-col>
 						</van-row>
 					</div>
 				</li>
@@ -109,6 +109,9 @@
 					console.log(error);
 		  			console.log("系统异常,请稍后再试");
 		  		});
+			},
+			toUserHome:function(userId){
+				Msg.$emit("toUserHome",userId);
 			}
 		},
 	mounted(){
